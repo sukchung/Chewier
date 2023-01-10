@@ -3,6 +3,8 @@ volumes:
         external: true
     pg-admin:
         external: true
+    # jwtdown-db-data:
+    #     external: true
     # other volumes...
 services:
   postgres:
@@ -30,6 +32,7 @@ services:
         context: ./accounts
         dockerfile: ./Dockerfile.dev
     environment:
+      # SIGNING_KEY: chewieristhesigningkey
       DATABASE_URL: postgresql://accounts:password@postgres/accounts
       WAIT_HOSTS: postgres:5432
     ports:
