@@ -77,7 +77,7 @@ def update_food_product(
     food_product: FoodProductIn,
     repo: FoodProductRepository = Depends(),
 ) -> Union[FoodProductOut, Error]:
-    return repo.update(food_product_id, food_product)
+    return repo.update_food_product(food_product_id, food_product)
 
 
 @router.delete("/products/{food_product_id}", response_model=bool)
@@ -94,7 +94,7 @@ def get_one_food_product(
     response: Response,
     repo: FoodProductRepository = Depends(),
 ) -> FoodProductOut:
-    food_product = repo.get_one(food_product_id)
+    food_product = repo.get_one_food_product(food_product_id)
     if food_product is None:
         response.status_code = 404
     return food_product

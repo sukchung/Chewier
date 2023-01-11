@@ -159,7 +159,7 @@ class FoodProductIn(BaseModel):
     name: str
     price: int
     main_ingredient: str
-    brand: int
+    brand_id: int
     state: str
     picture_url: str
 
@@ -169,7 +169,7 @@ class FoodProductOut(BaseModel):
     name: str
     price: int
     main_ingredient: str
-    brand: FoodBrandOut
+    brand_id: int
     state: str
     picture_url: str
 
@@ -226,7 +226,7 @@ class FoodProductRepository:
                             name=record[1],
                             price=record[2],
                             main_ingredient=record[3],
-                            brand=record[4],
+                            brand_id=record[4],
                             state=record[5],
                             picture_url=record[6],
                         )
@@ -238,10 +238,10 @@ class FoodProductRepository:
                 "message": "Could not retrieve all food products.  Please try your request again"
             }
 
-    def update(
+    def update_food_product(
         self, food_product_id: int, food_product: FoodProductIn
     ) -> Union[FoodProductOut, Error]:
-        try:
+        # try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
@@ -262,12 +262,13 @@ class FoodProductRepository:
                             food_product.brand_id,
                             food_product.state,
                             food_product.picture_url,
-                        ],
+                            food_product_id
+                        ]
                     )
                     return self.food_product_in_to_out(food_product_id, food_product)
-        except Exception as e:
-            # you know the deal, shoud prob print this during testing, tho
-            return {"message": "Could not update that product; please try again."}
+        # except Exception as e:
+            # # you know the deal, shoud prob print this during testing, tho
+            # return {"message": "Could not update that product; please try again."}
 
     def delete(self, food_product_id: int) -> bool:
         try:
