@@ -88,7 +88,7 @@ class PetRepository:
                         , account_id = %s
                         WHERE id = %s
                         """,
-                        [pet.name, pet.breed, pet.size, pet.age, pet.account_id],
+                        [pet.name, pet.breed, pet.size, pet.age, pet.account_id, pet_id],
                     )
                     return self.pet_in_to_out(pet_id, pet)
 
