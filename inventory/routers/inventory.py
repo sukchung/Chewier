@@ -88,7 +88,7 @@ def delete_food_product(
     return repo.delete(food_product_id)
 
 
-@router.get("/products/{food_product_id}", response_model=Optional)
+@router.get("/products/{food_product_id}", response_model=Optional[FoodProductOut])
 def get_one_food_product(
     food_product_id: int,
     response: Response,

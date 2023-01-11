@@ -73,7 +73,8 @@ class FoodBrandRepository:
                         """,
                         [
                             food_brand.name,
-                            food_brand.animal_type
+                            food_brand.animal_type,
+                            food_brand_id
                         ]
                     )
                     return self.food_brand_in_to_out(food_brand_id, food_brand)
@@ -292,7 +293,7 @@ class FoodProductRepository:
 
 
     def food_product_in_to_out(self, id: int, food_product: FoodProductIn):
-        old_data=food_product.dict
+        old_data=food_product.dict()
         return FoodProductOut(id=id, **old_data)
 
 
