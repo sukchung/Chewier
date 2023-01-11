@@ -7,6 +7,7 @@ steps = [
             animal_type VARCHAR(1000) NOT NULL
         );
         """,
+
         """
         DROP TABLE food_brands;
         """

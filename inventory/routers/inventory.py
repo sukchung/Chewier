@@ -13,7 +13,7 @@ def create_food_brand(
     response: Response,
     repo: FoodBrandRepository = Depends(),
 ):
-    response.status_code = 400
+    # response.status_code = 400
     return repo.create(food_brand)
 
 
@@ -33,15 +33,15 @@ def update_food_brand(
     return repo.update(food_brand_id, food_brand)
 
 
-@router.delete("/brands/{food_brand_id}", response_model=Union[FoodBrandOut, Error])
+@router.delete("/brands/{food_brand_id}", response_model= bool)
 def delete_food_brand(
     food_brand_id: int,
     repo: FoodBrandRepository = Depends(),
 ) -> bool:
-    return repo.delete(food_brand_id)
+    return repo.delete_food_brand(food_brand_id)
 
 
-@router.get("/brands/{food_brand_id}", response_model=Union[FoodBrandOut, Error])
+@router.get("/brands/{food_brand_id}", response_model=Optional[FoodBrandOut])
 def get_one_food_brand(
     food_brand_id: int,
     response: Response,
@@ -60,7 +60,7 @@ def create_food_product(
     response: Response,
     repo: FoodProductRepository = Depends(),
 ):
-    response.status_code = 400
+    # response.status_code = 400
     return repo.create(food_product)
 
 
@@ -80,7 +80,7 @@ def update_food_product(
     return repo.update(food_product_id, food_product)
 
 
-@router.delete("/products/{food_product_id}", response_model=Union[FoodProductOut, Error])
+@router.delete("/products/{food_product_id}", response_model=bool)
 def delete_food_product(
     food_product_id: int,
     repo: FoodProductRepository = Depends(),
