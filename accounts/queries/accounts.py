@@ -3,10 +3,6 @@ from queries.pool import pool
 from typing import List, Union, Optional
 
 # accounts shiz
-class Error(BaseModel):
-    message: str
-
-
 class AccountIn(BaseModel):
     first_name: str
     last_name: str
@@ -175,16 +171,16 @@ class AccountRepository:
     #         # print(e)
     #         return False
 
-    # def account_in_to_out(self, id: int, account: AccountIn):
-    #     old_data = account.dict()
-    #     return AccountOut(id=id, **old_data)
+    def account_in_to_out(self, id: int, account: AccountIn):
+        old_data = account.dict()
+        return AccountOut(id=id, **old_data)
 
-    # def record_to_account_out(self, record):
-    #     return AccountOut(
-    #         id=record[0],
-    #         first_name=record[1],
-    #         last_name=record[2],
-    #         email=record[3],
-    #         password=record[4],
-    #         address=record[5],
-    #     )
+    def record_to_account_out(self, record):
+        return AccountOut(
+            id=record[0],
+            first_name=record[1],
+            last_name=record[2],
+            email=record[3],
+            password=record[4],
+            address=record[5],
+        )
