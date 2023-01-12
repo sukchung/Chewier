@@ -7,7 +7,7 @@ steps = [
             last_name VARCHAR(1000) NOT NULL,
             email VARCHAR(1000) NOT NULL,
             address VARCHAR(1000) NOT NULL,
-            hashed_password VARCHAR(1000) NOT NULL
+            hashed_password VARCHAR(1000)
         );
         """,
         """
