@@ -16,7 +16,6 @@ class AccountOut(BaseModel):
     first_name: str
     last_name: str
     email: str
-    password: str
     address: str
 
 
@@ -34,7 +33,7 @@ class AccountRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, first_name, last_name, email, password, address, hashed_password
+                        SELECT id, first_name, last_name, email, address, hashed_password
                         FROM accounts
                         ORDER BY id;
                         """
@@ -53,16 +52,15 @@ class AccountRepository:
                     result = db.execute(
                         """
                         INSERT INTO accounts
-                            (first_name, last_name, email, password, address, hashed_password)
+                            (first_name, last_name, email, address, hashed_password)
                         VALUES
-                            (%s, %s, %s, %s, %s, %s)
+                            (%s, %s, %s, %s, %s)
                         RETURNING id;
                         """,
                         [
                             account.first_name,
                             account.last_name,
                             account.email,
-                            account.password,
                             account.address,
                             hashed_password
                         ]
@@ -89,7 +87,6 @@ class AccountRepository:
                         , first_name
                         , last_name
                         , email
-                        , password
                         , address
                         , hashed_password
                         FROM accounts;
@@ -102,34 +99,34 @@ class AccountRepository:
         except Exception as e:
             return {"message": "Could not locate that account.  Please try again. "}
 
-    def update_account(self, account_id: int, account: AccountIn) -> AccountOut:
-        try:
-            with pool.connection() as conn:
-                with conn.cursor() as db:
-                    db.execute(
-                        """
-                        UPDATE accounts
-                        SET first_name = %s
-                          , last_name = %s
-                          , email = %s
-                          , password = %s
-                          , address = %s
-                        WHERE id = %s
-                        """,
-                        [
-                            account.first_name,
-                            account.last_name,
-                            account.email,
-                            account.password,
-                            account.address,
-                            account_id
-                        ]
-                    )
-                    return self.account_in_to_out(account_id, account)
-        except Exception as e:
-            return {
-                "message": "Could not update that account.  Please check your input information, and try again."
-            }
+    # def update_account(self, account_id: int, account: AccountIn) -> AccountOut:
+    #     try:
+    #         with pool.connection() as conn:
+    #             with conn.cursor() as db:
+    #                 db.execute(
+    #                     """
+    #                     UPDATE accounts
+    #                     SET first_name = %s
+    #                       , last_name = %s
+    #                       , email = %s
+    #                       , password = %s
+    #                       , address = %s
+    #                     WHERE id = %s
+    #                     """,
+    #                     [
+    #                         account.first_name,
+    #                         account.last_name,
+    #                         account.email,
+    #                         account.password,
+    #                         account.address,
+    #                         account_id
+    #                     ]
+    #                 )
+    #                 return self.account_in_to_out(account_id, account)
+    #     except Exception as e:
+    #         return {
+    #             "message": "Could not update that account.  Please check your input information, and try again."
+    #         }
 
     def delete_account(self, account_id: int) -> bool:
         try:
@@ -163,7 +160,6 @@ class AccountRepository:
             first_name=record[1],
             last_name=record[2],
             email=record[3],
-            password=record[4],
-            address=record[5],
-            hashed_password=record[6]
+            address=record[4],
+            hashed_password=record[5]
         )

@@ -74,13 +74,13 @@ def get_one_account(
         response.status_code = 404
     return account
 
-@router.put("/accounts/{account_id}", response_model=AccountOut)
-def update_account(
-    account_id: int,
-    account: AccountIn,
-    repo: AccountRepository = Depends(),
-) -> AccountOut:
-    return repo.update_account(account_id, account)
+# @router.put("/accounts/{account_id}", response_model=AccountOut)
+# def update_account(
+#     account_id: int,
+#     account: AccountIn,
+#     repo: AccountRepository = Depends(),
+# ) -> AccountOut:
+#     return repo.update_account(account_id, account)
 
 @router.delete("/accounts/{account_id}", response_model=bool)
 def delete_account(
