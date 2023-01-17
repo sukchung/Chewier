@@ -53,7 +53,7 @@
             onChange={e => setState(e.target.value)}
             type="text" />
 
-      
+
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
     );
