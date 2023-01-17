@@ -1,3 +1,22 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainPage from "./MainPage";
+
+function App(props) {
+  return (
+    <BrowserRouter>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+
+
 // import { useEffect, useState } from 'react';
 // import Construct from './Construct.js'
 // import ErrorNotification from './ErrorNotification';
@@ -36,19 +55,3 @@
 // }
 
 // export default App;
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainPage from "./MainPage";
-
-function App(props) {
-  return (
-    <BrowserRouter>
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
-}
-
-export default App;
