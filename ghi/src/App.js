@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AccountDetail from "./AccountDetail";
 import MainPage from "./MainPage";
 
 function App(props) {
