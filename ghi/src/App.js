@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";
+import PetForm from "./PetForm";
 
 function App(props) {
   return (
@@ -7,6 +8,7 @@ function App(props) {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/pets" element ={<PetForm pet = {props.pet}/>} />
         </Routes>
       </div>
     </BrowserRouter>
