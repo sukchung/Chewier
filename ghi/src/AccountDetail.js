@@ -5,7 +5,7 @@ import './index.css';
 const AccountDetail = () => {
     const { token } = useAuthContext();
     const [account, setAccount] = useState([]);
-
+    const [pets, setPets] = useState([]);
 
     useEffect(() => {
         async function getPets() {
@@ -13,10 +13,12 @@ const AccountDetail = () => {
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
-                setPets(data)
+                setPets(data);
             }
         }
-    })
+        getPets();
+    }, [setPets]);
+
     useEffect(() => {
         fetch('http://localhost:8080/token')
             .then(response => response.json())
