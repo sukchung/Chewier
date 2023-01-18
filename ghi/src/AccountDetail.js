@@ -4,7 +4,6 @@ import './index.css';
 
 const AccountDetail = () => {
     const { token } = useAuthContext();
-    const [account, setAccount] = useState([]);
     const [pets, setPets] = useState([]);
 
     useEffect(() => {
@@ -19,32 +18,19 @@ const AccountDetail = () => {
         getPets();
     }, [setPets]);
 
-    useEffect(() => {
-        fetch('http://localhost:8080/token')
-            .then(response => response.json())
-            .then(data => {
-                setAccountId(data.account.id)
-            })
-            .catch(e => console.log('error: ', e));
-
-        fetch(`http://localhost:8080/accounts/${accountId}`)
-            .then(response => response.json())
-            .then(data => {
-                setAccount(data);
-            })
-            .catch(e => console.log('error: ', e));
-    })
     return (
         <>
             <div>
-                <h2>Account Detail</h2>
-                <p>{account.first_name}</p>
-                <p>{account.last_name}</p>
-                <p>{account.email}</p>
-                <p>{account.adress}</p>
+                <h1>Account Detail</h1>
+                <ul>
+                    <li>{token.account.first_name}</li>
+                    <li>{token.account.last_name}</li>
+                    <li>{token.account.email}</li>
+                    <li>{token.account.adress}</li>
+                </ul>
             </div>
             <div>
-                <h2>Pets</h2>
+                <h1>Pets</h1>
             </div>
         </>
     );
