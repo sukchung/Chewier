@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "./Auth";
+import { useJwt } from "react-jwt"
 
 function PetList() {
   const [pets, setPets] = useState([]);
   const { token } = useAuthContext();
+  const { decodedToken, isExpired } = useJwt(token);
+//   const [account, setAccount] = useState({})
 
 //   useEffect(() => {
-//     async function getToken() {
-//       const url = "localhost:8000/token";
+//     async function getAccount() {
+//       const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/account/{account_id}`;
 //       const response = await fetch(url, { Authorization: 'Bearer ${token}' });
 //       if (response.ok) {
 //         const data = await response.json();
-//         setToken(data);
+//         setAccount(data);
 //       }
 //     }
-//   });
+//     getAccount();
+//   }, [setAccount]);
 
   useEffect(() => {
     async function getPets() {
@@ -29,6 +33,7 @@ function PetList() {
     getPets();
   }, [setPets]);
 
+  console.log(pets)
 
     return (
         <div>
@@ -47,8 +52,8 @@ function PetList() {
             </thead>
             <tbody>
                 {pets
-                .filter((pet) => pet.account_id === token.account.id)
-                .map((pet) => (
+                .filter(pet => pet.account_id === decodedToken?.account.id)
+                .map(pet => (
                     <tr key={pet.id}>
                     <td>{pet.name}</td>
                     <td>{pet.breed}</td>

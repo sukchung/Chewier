@@ -76,7 +76,7 @@ export function useToken() {
 
   async function logout() {
     if (token) {
-      const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/token/refresh/logout/`;
+      const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
       await fetch(url, { method: "delete", credentials: "include" });
       internalToken = null;
       setToken(null);
@@ -85,7 +85,7 @@ export function useToken() {
   }
 
   async function login(username, password) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/login/`;
+    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token/`;
     const form = new FormData();
     form.append("username", username);
     form.append("password", password);
@@ -103,16 +103,16 @@ export function useToken() {
     return handleErrorMessage(error);
   }
 
-  async function signup(firstName, lastName, email, address, password) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/`;
+  async function signup(firstName, lastName, email, password, address) {
+    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/accounts`;
     const response = await fetch(url, {
       method: "post",
       body: JSON.stringify({
         first_name: firstName,
         last_name: lastName,
         email,
-        address,
         password,
+        address,
       }),
       headers: {
         "Content-Type": "application/json",
