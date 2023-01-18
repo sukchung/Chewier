@@ -31,7 +31,7 @@ const AccountDetail = () => {
             </div>
             <div>
                 <h1>Pets</h1>
-                <p>Create Pet</p>
+                <h3>Create Pet</h3>
             </div>
         </>
     );

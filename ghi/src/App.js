@@ -9,6 +9,9 @@ function App(props) {
         <Routes>
           <Route path="/" element={<MainPage />} />
         </Routes>
+        <Routes>
+          <Route path="account" element={<AccountDetail/>} />
+        </Routes>
       </div>
     </BrowserRouter>
   );
