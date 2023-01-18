@@ -1,38 +1,24 @@
-import { useEffect, useState } from "react";
 import { useAuthContext } from "./Auth";
 import './index.css';
 
-const AccountDetail = () => {
+function AccountDetail() {
     const { token } = useAuthContext();
-    const [pets, setPets] = useState([]);
-
-    useEffect(() => {
-        async function getPets() {
-            const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/pets`;
-            const response = await fetch(url);
-            if (response.ok) {
-                const data = await response.json();
-                setPets(data);
-            }
-        }
-        getPets();
-    }, [setPets]);
-
+    console.log(token)
     return (
         <>
             <div>
                 <h1>Account Detail</h1>
-                <ul>
-                    <li>{token.account.first_name}</li>
-                    <li>{token.account.last_name}</li>
-                    <li>{token.account.email}</li>
-                    <li>{token.account.adress}</li>
-                </ul>
+                <p>{token?.account.first_name}</p>
+                <p>{token?.account.last_name}</p>
+                <p>{token?.account.email}</p>
+                <p>{token?.account.address}</p>
+            </div>
+            {/* <div>
+                <a>View Your Pets</a>
             </div>
             <div>
-                <h1>Pets</h1>
-                <h3>Create Pet</h3>
-            </div>
+                <a>Add Pet</a>
+            </div> */}
         </>
     );
 }
