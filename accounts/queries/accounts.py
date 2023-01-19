@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from queries.pool import pool
 from typing import List
 
-# accounts shiz
+
 class AccountIn(BaseModel):
     first_name: str
     last_name: str
