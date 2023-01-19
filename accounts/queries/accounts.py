@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from queries.pool import pool
-from typing import List, Union, Optional
+from typing import List
 
 # accounts shiz
 class AccountIn(BaseModel):
@@ -100,35 +100,6 @@ class AccountRepository:
                     return self.record_to_account_out(record)
         except Exception as e:
             return {"message": "Could not locate that account.  Please try again. "}
-
-    # def update_account(self, account_id: int, account: AccountIn) -> AccountOut:
-    #     try:
-    #         with pool.connection() as conn:
-    #             with conn.cursor() as db:
-    #                 db.execute(
-    #                     """
-    #                     UPDATE accounts
-    #                     SET first_name = %s
-    #                       , last_name = %s
-    #                       , email = %s
-    #                       , password = %s
-    #                       , address = %s
-    #                     WHERE id = %s
-    #                     """,
-    #                     [
-    #                         account.first_name,
-    #                         account.last_name,
-    #                         account.email,
-    #                         account.password,
-    #                         account.address,
-    #                         account_id
-    #                     ]
-    #                 )
-    #                 return self.account_in_to_out(account_id, account)
-    #     except Exception as e:
-    #         return {
-    #             "message": "Could not update that account.  Please check your input information, and try again."
-    #         }
 
     def delete_account(self, account_id: int) -> bool:
         try:
