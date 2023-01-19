@@ -14,7 +14,7 @@ export async function getTokenInternal() {
     });
     if (response.ok) {
       const data = await response.json();
-      internalToken = data.access_token;
+      internalToken = data;
       return internalToken;
     }
   } catch (e) {}
@@ -75,7 +75,7 @@ export function useToken() {
 
   async function logout() {
     if (token) {
-      const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token/`;
+      const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
       await fetch(url, { method: "delete", credentials: "include" });
       internalToken = null;
       setToken(null);
@@ -102,16 +102,16 @@ export function useToken() {
     return handleErrorMessage(error);
   }
 
-  async function signup(firstName, lastName, email, address, password) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/accounts/`;
+  async function signup(firstName, lastName, email, password, address) {
+    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/accounts`;
     const response = await fetch(url, {
       method: "post",
       body: JSON.stringify({
         first_name: firstName,
         last_name: lastName,
         email,
-        address,
         password,
+        address,
       }),
       headers: {
         "Content-Type": "application/json",
