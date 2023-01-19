@@ -1,7 +1,25 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainPage from "./MainPage";
-import LogInForm from "./LoginForm";
+// Dependencies
 import { AuthProvider, useToken } from "./Auth";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+
+// Components
+import Construct from "./Construct.js";
+import NavSuk from "./NavSuk";
+import SignupForm from "./Accounts/SignupForm";
+import ProductList from "./Inventory/ProductList";
+
+function GetToken() {
+    useToken();
+    return null
+}
+
+function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider, useToken } from "./Auth";
+import MainPage from "./MainPage";
+import PetForm from "./PetForm";
+import PetList from "./PetList";
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
@@ -9,21 +27,29 @@ function GetToken() {
   return null;
 }
 
+
 function App(props) {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-      <GetToken />
+    <BrowserRouter>
+      <AuthProvider>
+        <GetToken />
+        <NavSuk />
+        <Routes>
+          <Route path="/" element={<Construct />} />
+          <Route path="products" element={<ProductList />} />
+          <Route path="accounts">
+            <Route path="new" element={<SignupForm />} />
+          </Route>
+        </Routes>
         <div className="container">
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="login">
-              <Route index element={<LogInForm />} />
-            </Route>
+            <Route path="petslist" element={<PetList pets={props.pets} />} />
+            <Route path="/pets" element ={<PetForm pet = {props.pet}/>} />
           </Routes>
         </div>
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
