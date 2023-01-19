@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider, useToken } from "./Auth";
+import AccountDetail from "./AccountDetail";
 import MainPage from "./MainPage";
 import PetForm from "./PetForm";
 import PetList from "./PetList";
@@ -20,7 +21,12 @@ function App(props) {
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="petslist" element={<PetList pets={props.pets} />} />
+<<<<<<< HEAD
             <Route path="/pets" element ={<PetForm pet = {props.pet}/>} />
+=======
+            <Route path="pets" element ={<PetForm pet = {props.pet}/>} />
+            <Route path="account" element={<AccountDetail account = {props.account}/>} />
+>>>>>>> alex
           </Routes>
         </div>
       </AuthProvider>
