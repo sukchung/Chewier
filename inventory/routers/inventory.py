@@ -1,12 +1,19 @@
 from fastapi import APIRouter, Depends, Response
-from queries.inventory import FoodBrandIn, FoodBrandOut, FoodBrandRepository, Error, FoodProductIn, FoodProductOut, FoodProductRepository
+from queries.inventory import (
+    FoodBrandIn,
+    FoodBrandOut,
+    FoodBrandRepository,
+    Error,
+    FoodProductIn,
+    FoodProductOut,
+    FoodProductRepository,
+)
 from typing import Union, List, Optional
 
 
 router = APIRouter()
 
 
-# BRANDS
 @router.post("/brands", response_model=Union[FoodBrandOut, Error])
 def create_food_brand(
     food_brand: FoodBrandIn,
@@ -24,7 +31,9 @@ def get_all_food_brands(
     return repo.get_all_food_brands()
 
 
-@router.put("/brands/{food_brand_id}", response_model=Union[FoodBrandOut, Error])
+@router.put(
+    "/brands/{food_brand_id}", response_model=Union[FoodBrandOut, Error]
+)
 def update_food_brand(
     food_brand_id: int,
     food_brand: FoodBrandIn,
@@ -33,7 +42,7 @@ def update_food_brand(
     return repo.update(food_brand_id, food_brand)
 
 
-@router.delete("/brands/{food_brand_id}", response_model= bool)
+@router.delete("/brands/{food_brand_id}", response_model=bool)
 def delete_food_brand(
     food_brand_id: int,
     repo: FoodBrandRepository = Depends(),
@@ -49,7 +58,7 @@ def get_one_food_brand(
 ) -> FoodBrandOut:
     food_brand = repo.get_one(food_brand_id)
     if food_brand is None:
-        response.status_code= 404
+        response.status_code = 404
     return food_brand
 
 
@@ -64,14 +73,16 @@ def create_food_product(
     return repo.create(food_product)
 
 
-@router.get("/products", response_model = Union[List[FoodProductOut], Error])
+@router.get("/products", response_model=Union[List[FoodProductOut], Error])
 def get_all_food_products(
     repo: FoodProductRepository = Depends(),
 ):
     return repo.get_all_food_products()
 
 
-@router.put("/products/{food_product_id}", response_model = Union[FoodProductOut, Error])
+@router.put(
+    "/products/{food_product_id}", response_model=Union[FoodProductOut, Error]
+)
 def update_food_product(
     food_product_id: int,
     food_product: FoodProductIn,
@@ -88,7 +99,9 @@ def delete_food_product(
     return repo.delete(food_product_id)
 
 
-@router.get("/products/{food_product_id}", response_model=Optional[FoodProductOut])
+@router.get(
+    "/products/{food_product_id}", response_model=Optional[FoodProductOut]
+)
 def get_one_food_product(
     food_product_id: int,
     response: Response,

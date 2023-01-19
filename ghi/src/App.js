@@ -1,38 +1,80 @@
-import { useEffect, useState } from 'react';
-import Construct from './Construct.js'
-import ErrorNotification from './ErrorNotification';
-import './App.css';
+// Dependencies
+import { AuthProvider, useToken } from "./Auth";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AccountDetail from "./AccountDetail";
+import MainPage from "./MainPage";
+import PetForm from "./PetForm";
+import PetList from "./PetList";
+import Nav from "./Nav";
+import SignupForm from "./Accounts/SignupForm";
+import ProductList from "./Inventory/ProductList";
+import LogInForm from "./LoginForm";
+import "./App.css";
 
-function App() {
-  const [launch_info, setLaunchInfo] = useState([]);
-  const [error, setError] = useState(null);  
+function GetToken() {
+  useToken();
+  return null;
+}
 
-  useEffect(() => {
-    async function getData() {
-      let url = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/launch-details`;
-      console.log('fastapi url: ', url);
-      let response = await fetch(url);
-      console.log("------- hello? -------");
-      let data = await response.json();
-
-      if (response.ok) {
-        console.log("got launch data!");
-        setLaunchInfo(data.launch_details);
-      } else {
-        console.log("drat! something happened");
-        setError(data.message);
-      }
-    }
-    getData();
-  }, [])
-
-
+function App(props) {
   return (
-    <div>
-      <ErrorNotification error={error} />
-      <Construct info={launch_info} />
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <GetToken />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="products" element={<ProductList />} />
+          <Route path="signup" element={<SignupForm />} />
+          <Route path="login" element={<LogInForm />} />
+          <Route path="petslist" element={<PetList pets={props.pets} />} />
+          <Route path="petsform" element={<PetForm pet={props.pet} />} />
+          <Route
+            path="account"
+            element={<AccountDetail account={props.account} />}
+          />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+// import { useEffect, useState } from 'react';
+// import Construct from './Construct.js'
+// import ErrorNotification from './ErrorNotification';
+// import './App.css';
+
+// function App() {
+//   const [launch_info, setLaunchInfo] = useState([]);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     async function getData() {
+//       let url = `${process.env.REACT_APP_SAMPLE_SERVICE_API_HOST}/api/launch-details`;
+//       console.log('fastapi url: ', url);
+//       let response = await fetch(url);
+//       console.log("------- hello? -------");
+//       let data = await response.json();
+
+//       if (response.ok) {
+//         console.log("got launch data!");
+//         setLaunchInfo(data.launch_details);
+//       } else {
+//         console.log("drat! something happened");
+//         setError(data.message);
+//       }
+//     }
+//     getData();
+//   }, [])
+
+//   return (
+//     <div>
+//       <ErrorNotification error={error} />
+//       <Construct info={launch_info} />
+//     </div>
+//   );
+// }
+
+// export default App;
