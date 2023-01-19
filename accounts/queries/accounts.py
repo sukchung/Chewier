@@ -89,8 +89,10 @@ class AccountRepository:
                         , email
                         , address
                         , hashed_password
-                        FROM accounts;
+                        FROM accounts
+                        WHERE email = %s;
                         """,
+                        [email]
                     )
                     record = result.fetchone()
                     if record is None:

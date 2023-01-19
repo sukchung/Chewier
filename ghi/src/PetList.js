@@ -6,7 +6,7 @@ import { useJwt } from "react-jwt"
 function PetList() {
   const [pets, setPets] = useState([]);
   const { token } = useAuthContext();
-  const { decodedToken, isExpired } = useJwt(token);
+//   const { decodedToken, isExpired } = useJwt(token);
 //   const [account, setAccount] = useState({})
 
 //   useEffect(() => {
@@ -52,7 +52,7 @@ function PetList() {
             </thead>
             <tbody>
                 {pets
-                .filter(pet => pet.account_id === decodedToken?.account.id)
+                .filter(pet => pet.account_id === token?.account.id)
                 .map(pet => (
                     <tr key={pet.id}>
                     <td>{pet.name}</td>

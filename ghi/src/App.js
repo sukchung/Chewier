@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider, useToken } from "./Auth";
 import MainPage from "./MainPage";
 import PetList from "./PetList";
+import PetForm from "./PetForm";
 
 function GetToken() {
   // Get token from JWT cookie (if already logged in)
@@ -19,6 +20,7 @@ function App(props) {
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="petslist" element={<PetList pets={props.pets} />} />
+            <Route path="petform" element={<PetForm />} />
           </Routes>
         </div>
       </AuthProvider>

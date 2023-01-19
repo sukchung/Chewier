@@ -8,14 +8,13 @@ export function getToken() {
 
 export async function getTokenInternal() {
   const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
-  console.log(process.env.REACT_APP_ACCOUNTS_HOST);
   try {
     const response = await fetch(url, {
       credentials: "include",
     });
     if (response.ok) {
       const data = await response.json();
-      internalToken = data.access_token;
+      internalToken = data;
       return internalToken;
     }
   } catch (e) {}
@@ -85,7 +84,7 @@ export function useToken() {
   }
 
   async function login(username, password) {
-    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token/`;
+    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
     const form = new FormData();
     form.append("username", username);
     form.append("password", password);
