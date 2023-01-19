@@ -7,8 +7,7 @@ export function getToken() {
 }
 
 export async function getTokenInternal() {
-  const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
-  console.log(process.env.REACT_APP_ACCOUNTS_HOST);
+  const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token/`;
   try {
     const response = await fetch(url, {
       credentials: "include",
