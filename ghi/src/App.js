@@ -1,6 +1,10 @@
 // Dependencies
 import { AuthProvider, useToken } from "./Auth";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AccountDetail from "./AccountDetail";
+import MainPage from "./MainPage";
+import PetForm from "./PetForm";
+import PetList from "./PetList";
 import "./App.css";
 
 // Components
@@ -12,20 +16,6 @@ import ProductList from "./Inventory/ProductList";
 function GetToken() {
     useToken();
     return null
-}
-
-function App() {
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider, useToken } from "./Auth";
-import AccountDetail from "./AccountDetail";
-import MainPage from "./MainPage";
-import PetForm from "./PetForm";
-import PetList from "./PetList";
-
-function GetToken() {
-  // Get token from JWT cookie (if already logged in)
-  useToken();
-  return null;
 }
 
 
