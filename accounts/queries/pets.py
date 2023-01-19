@@ -69,6 +69,7 @@ class PetRepository:
                         for record in result
                     ]
         except Exception as e:
+            print(e)
             return {
                 "message": "Could not retrieve all pets.  Please try your request again."
             }
@@ -93,12 +94,13 @@ class PetRepository:
                             pet.size,
                             pet.age,
                             pet.account_id,
-                            pet_id
-                        ]
+                            pet_id,
+                        ],
                     )
                     return self.pet_in_to_out(pet_id, pet)
 
         except Exception as e:
+            print(e)
             return {"message": "Could not update that pet; please try again."}
 
     def delete_pet(self, pet_id: int) -> bool:
@@ -114,6 +116,7 @@ class PetRepository:
                     )
                     return True
         except Exception as e:
+            print(e)
             return False
 
     def pet_in_to_out(self, id: int, pet: PetIn):
