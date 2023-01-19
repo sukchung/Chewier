@@ -17,12 +17,11 @@ const LogInForm = (props) => {
   const [formIsvalid, setFormIsValid] = useState(false);
   const [token, login] = useToken();
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     if (token) {
-      navigate("/");
+      useNavigate("/");
     }
+    useNavigate()
   }, [token]);
 
   //   const registerHandler = (event) => {

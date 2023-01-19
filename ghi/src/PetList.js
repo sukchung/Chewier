@@ -1,25 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useAuthContext } from "./Auth";
-import { useJwt } from "react-jwt";
+// import { Link } from "react-router-dom";
+// import { useJwt } from "react-jwt";
 
 function PetList() {
   const [pets, setPets] = useState([]);
   const { token } = useAuthContext();
   //   const { decodedToken, isExpired } = useJwt(token);
-  //   const [account, setAccount] = useState({})
-
-  //   useEffect(() => {
-  //     async function getAccount() {
-  //       const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/account/{account_id}`;
-  //       const response = await fetch(url, { Authorization: 'Bearer ${token}' });
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         setAccount(data);
-  //       }
-  //     }
-  //     getAccount();
-  //   }, [setAccount]);
 
   useEffect(() => {
     async function getPets() {

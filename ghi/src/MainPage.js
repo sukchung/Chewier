@@ -9,7 +9,7 @@ function MainPage() {
         <img
           src="https://www.news-medical.net/images/news/ImageForNews_704692_16450308930134291.jpg"
           className="img-fluid"
-          alt="Responsive image"
+          alt=""
         />
       </div>
     </div>
