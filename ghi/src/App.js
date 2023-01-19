@@ -7,6 +7,7 @@ import "./App.css";
 import Construct from "./Construct.js";
 import NavSuk from "./NavSuk";
 import SignupForm from "./Accounts/SignupForm";
+import ProductList from "./Inventory/ProductList";
 
 function GetToken() {
     useToken();
@@ -21,6 +22,7 @@ function App() {
         <NavSuk />
         <Routes>
           <Route path="/" element={<Construct />} />
+          <Route path="products" element={<ProductList />} />
           <Route path="accounts">
             <Route path="new" element={<SignupForm />} />
           </Route>

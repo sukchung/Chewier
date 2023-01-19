@@ -20,7 +20,7 @@ export default function SignupForm() {
 
   function confirmEmail(email) {
     const regex =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const lowercaseEmail = String(email).toLowerCase();
     return regex.test(lowercaseEmail);
   }
@@ -174,12 +174,11 @@ export default function SignupForm() {
               Sign up
             </button>
             <div>
-              <div></div>
               <p className="spacing">
                 Already have an account?{" "}
                 <NavLink
                   to="/login"
-                  className="active login-font purple-text hover-underline-animation"
+                  className="active login-font purple-text purple-hover"
                 >
                   Log in
                 </NavLink>
