@@ -43,6 +43,7 @@ class FoodBrandRepository:
                     id = result.fetchone()[0]
                     return self.food_brand_in_to_out(id, food_brand)
         except Exception as e:
+            print(e)
             return {"messsage": "Could not create brand"}
 
     def get_all_food_brands(self) -> Union[Error, List[FoodBrandOut]]:
@@ -60,9 +61,10 @@ class FoodBrandRepository:
                         FoodBrandOut(
                             id=record[0], name=record[1], animal_type=record[2]
                         )
-                        for record in db
+                        for record in result
                     ]
         except Exception as e:
+            print(e)
             return {"message": "Could not retrieve all brands"}
 
     def update(
@@ -87,8 +89,13 @@ class FoodBrandRepository:
                     return self.food_brand_in_to_out(food_brand_id, food_brand)
 
         except Exception as e:
+            print(e)
             return {
-                "message": "Could not update that food brand.  Please check your input information, and try again."
+                "message": """
+                            Could not update that food brand.
+                             Please check your input information,
+                              and try again.
+                            """
             }
 
     def delete_food_brand(self, food_brand_id: int) -> bool:
@@ -104,6 +111,7 @@ class FoodBrandRepository:
                     )
                     return True
         except Exception as e:
+            print(e)
             return False
 
     def get_one(self, food_brand_id: int) -> Optional[FoodBrandOut]:
@@ -127,7 +135,7 @@ class FoodBrandRepository:
         except Exception as e:
             print(e)
             return {
-                "message": "Could not retrieve that food brand.  Please try again."
+                "message": "Could not retrieve food brand. Please try again."
             }
 
     def food_brand_in_to_out(self, id: int, food_brand: FoodBrandIn):
@@ -218,8 +226,9 @@ class FoodProductRepository:
                         for record in result
                     ]
         except Exception as e:
+            print(e)
             return {
-                "message": "Could not retrieve all food products.  Please try your request again"
+                "message": "Could not get all food products. Please try again"
             }
 
     def update_food_product(
@@ -269,6 +278,7 @@ class FoodProductRepository:
                     )
                     return True
         except Exception as e:
+            print(e)
             return False
 
     def get_one_food_product(
@@ -296,8 +306,9 @@ class FoodProductRepository:
                         return None
                     return self.record_to_food_product_out(record)
         except Exception as e:
+            print(e)
             return {
-                "message": "Could not locate that product.  Please try again."
+                "message": "Could not locate that product. Please try again."
             }
 
     def food_product_in_to_out(self, id: int, food_product: FoodProductIn):

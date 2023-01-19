@@ -73,7 +73,7 @@ class PetRepository:
             return {
                 "message": """
                             Could not retrieve all pets.
-                            Please try your request again.
+                             Please try your request again.
                             """
             }
 
