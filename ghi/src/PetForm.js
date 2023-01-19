@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { useAuthContext } from './Auth';
+import { useAuthContext } from "./Auth";
 
 function FancyBootStrappin(props) {
     const { id, placeholder, labelText, value, onChange, type } = props;
+
+
 
     return (
         <div className="mb-3">
@@ -18,7 +20,8 @@ function PetForm(props) {
     const [breed, setBreed] = useState('');
     const [size, setSize] = useState('');
     const [age, setAge] = useState('');
-    const { token } = useAuthContext()
+    const { token } = useAuthContext();
+    // console.log(token)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -42,7 +45,7 @@ function PetForm(props) {
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
             const newPet = await response.json();
-            console.log(newPet)
+            // console.log(newPet)
 
             clearState();
         }
@@ -56,43 +59,38 @@ function PetForm(props) {
     };
 
     return (
-      <form onSubmit={handleSubmit} id="pets-form">
+    <form onSubmit={handleSubmit} id= "pets-form">
         <FancyBootStrappin
-          id="name"
-          placeholder="Plz to give name"
-          labelText="What's your crites name?  Don't leave us hanging, now."
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          type="text"
-        />
+            id="petName"
+            placeholder = "Plz to give name"
+            labelText = "What's your crites name?  Don't leave us hanging, now."
+            value = {name}
+            onChange = {e => setName(e.target.value)}
+            type = "text"/>
         <FancyBootStrappin
-          id="breed"
-          placeholder="Doggo or catto?"
-          labelText="Is it a dog? Is it a cat?  Let us know!  Unless it's a catdog, and then maybe you should just head to the vet instead."
-          value={breed}
-          onChange={(e) => setBreed(e.target.value)}
-          type="text"
-        />
+            id="petType"
+            placeholder = "Doggo or catto?"
+            labelText = "Is it a dog? Is it a cat?  Let us know!  Unless it's a catdog, and then maybe you should just head to the vet instead."
+            value = {breed}
+            onChange = {e => setBreed(e.target.value)}
+            type = "text"/>
         <FancyBootStrappin
-          id="size"
-          placeholder="It's okay, we love the chonks and won't judge."
-          labelText="Are they a big 'un you can ride like a pony?  Or can you lose them in a laundry pile?  Give us the deets."
-          value={size}
-          onChange={(e) => setSize(e.target.value)}
-          type="text"
-        />
+            id="petSize"
+            placeholder = "It's okay, we love the chonks and won't judge."
+            labelText = "Are they a big 'un you can ride like a pony?  Or can you lose them in a laundry pile?  Give us the deets."
+            value = {size}
+            onChange = {e => setSize(e.target.value)}
+            type = "text"/>
         <FancyBootStrappin
-          id="age"
-          placeholder="All pets are bebbies, but we're going to need an actual number here."
-          labelText="Are they bebby?  A moody teenager?  A super duper senior?"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-          type="text"
-        />
-        <button type="submit" className="btn btn-primary">
-          Add pet
-        </button>
-      </form>
-    );
+            id="petAge"
+            placeholder = "All pets are bebbies, but we're going to need an actual number here."
+            labelText = "Are they bebby?  A moody teenager?  A super duper senior?"
+            value = {age}
+            onChange = {e => setAge(e.target.value)}
+            type = "text"/>
+
+            <button type="submit" className ="btn btn-primary">Add pet</button>
+            </form>
+            );
 }
 export default PetForm;

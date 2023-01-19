@@ -67,6 +67,7 @@ services:
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
       REACT_APP_ACCOUNTS_HOST: http://localhost:8080
+      REACT_APP_INVENTORY_HOST: http://localhost:8090
 
   pg-admin:
     image: dpage/pgadmin4

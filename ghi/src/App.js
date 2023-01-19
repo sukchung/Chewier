@@ -1,13 +1,21 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// Dependencies
 import { AuthProvider, useToken } from "./Auth";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AccountDetail from "./AccountDetail";
 import MainPage from "./MainPage";
-import PetList from "./PetList";
 import PetForm from "./PetForm";
+import PetList from "./PetList";
+import "./App.css";
+
+// Components
+import Construct from "./Construct.js";
+import NavSuk from "./NavSuk";
+import SignupForm from "./Accounts/SignupForm";
+import ProductList from "./Inventory/ProductList";
 
 function GetToken() {
-  // Get token from JWT cookie (if already logged in)
-  useToken();
-  return null;
+    useToken();
+    return null
 }
 
 
@@ -16,11 +24,21 @@ function App(props) {
     <BrowserRouter>
       <AuthProvider>
         <GetToken />
+        <NavSuk />
+        <Routes>
+          <Route path="/" element={<Construct />} />
+          <Route path="products" element={<ProductList />} />
+          <Route path="accounts">
+            <Route path="new" element={<SignupForm />} />
+          </Route>
+        </Routes>
         <div className="container">
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="petslist" element={<PetList pets={props.pets} />} />
             <Route path="petform" element={<PetForm />} />
+            <Route path="pets" element ={<PetForm pet = {props.pet}/>} />
+            <Route path="account" element={<AccountDetail account = {props.account}/>} />
           </Routes>
         </div>
       </AuthProvider>

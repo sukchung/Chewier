@@ -1,5 +1,6 @@
 steps = [
     [
+        # ADDED UNIQUE CONSTRAINT ON EMAIL
         """
         CREATE TABLE accounts (
             id SERIAL PRIMARY KEY NOT NULL,
