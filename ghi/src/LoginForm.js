@@ -1,9 +1,7 @@
-import classes from './LoginForm.module.css'
+import classes from "./LoginForm.module.css";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import { useToken } from './Auth';
-
-
+import { useNavigate } from "react-router-dom";
+import { useToken } from "./Auth";
 
 const Card = (props) => {
   return (
@@ -12,8 +10,6 @@ const Card = (props) => {
 };
 
 const LogInForm = (props) => {
-
-
   const [enteredEmail, setEnteredEmail] = useState("");
   const [emailIsValid, setEmailIsValid] = useState();
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -21,27 +17,26 @@ const LogInForm = (props) => {
   const [formIsvalid, setFormIsValid] = useState(false);
   const [token, login] = useToken();
 
-
   const navigate = useNavigate();
 
   useEffect(() => {
     if (token) {
-        navigate("/");
+      navigate("/");
     }
   }, [token]);
 
-//   const registerHandler = (event) => {
-//     event.preventDefault();
-//     console.log("Clicked!");
-//     navigate("/signup");
-//   }
+  //   const registerHandler = (event) => {
+  //     event.preventDefault();
+  //     console.log("Clicked!");
+  //     navigate("/signup");
+  //   }
 
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
-        await login(enteredEmail, enteredPassword);
+      await login(enteredEmail, enteredPassword);
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
   };
 
@@ -52,7 +47,7 @@ const LogInForm = (props) => {
       event.target.value.includes("@") && enteredPassword.trim().length >= 6
     );
   };
-   const passwordChangeHandler = (event) => {
+  const passwordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
 
     setFormIsValid(
@@ -60,14 +55,12 @@ const LogInForm = (props) => {
     );
   };
 
-   const validateEmailHandler = () => {
-    setEmailIsValid(enteredEmail.includes('@'));
+  const validateEmailHandler = () => {
+    setEmailIsValid(enteredEmail.includes("@"));
   };
-   const validatePasswordHandler = ()  => {
+  const validatePasswordHandler = () => {
     setPasswordIsValid(enteredPassword.trim().length >= 6);
-  }
-
-
+  };
 
   return (
     <Card className={classes.login}>
@@ -110,7 +103,7 @@ const LogInForm = (props) => {
             Login!
           </button>
         </div>
-        <div className="text-center" >
+        <div className="text-center">
           <p>
             Not a Chewier member? <a href="#!">Sign up!</a>
           </p>
@@ -118,6 +111,6 @@ const LogInForm = (props) => {
       </form>
     </Card>
   );
-}
+};
 
 export default LogInForm;

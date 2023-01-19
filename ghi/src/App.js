@@ -5,50 +5,41 @@ import AccountDetail from "./AccountDetail";
 import MainPage from "./MainPage";
 import PetForm from "./PetForm";
 import PetList from "./PetList";
-import "./App.css";
-
-// Components
-import Construct from "./Construct.js";
-import NavSuk from "./NavSuk";
+import Nav from "./Nav";
 import SignupForm from "./Accounts/SignupForm";
 import ProductList from "./Inventory/ProductList";
+import LogInForm from "./LoginForm";
+import "./App.css";
 
 function GetToken() {
-    useToken();
-    return null
+  useToken();
+  return null;
 }
-
 
 function App(props) {
   return (
     <BrowserRouter>
       <AuthProvider>
         <GetToken />
-        <NavSuk />
+        <Nav />
         <Routes>
-          <Route path="/" element={<Construct />} />
+          <Route path="/" element={<MainPage />} />
           <Route path="products" element={<ProductList />} />
-          <Route path="accounts">
-            <Route path="new" element={<SignupForm />} />
-          </Route>
+          <Route path="signup" element={<SignupForm />} />
+          <Route path="login" element={<LogInForm />} />
+          <Route path="petslist" element={<PetList pets={props.pets} />} />
+          <Route path="petsform" element={<PetForm pet={props.pet} />} />
+          <Route
+            path="account"
+            element={<AccountDetail account={props.account} />}
+          />
         </Routes>
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="petslist" element={<PetList pets={props.pets} />} />
-            <Route path="petform" element={<PetForm />} />
-            <Route path="pets" element ={<PetForm pet = {props.pet}/>} />
-            <Route path="account" element={<AccountDetail account = {props.account}/>} />
-          </Routes>
-        </div>
       </AuthProvider>
     </BrowserRouter>
   );
 }
 
 export default App;
-
-
 
 // import { useEffect, useState } from 'react';
 // import Construct from './Construct.js'
@@ -77,7 +68,6 @@ export default App;
 //     }
 //     getData();
 //   }, [])
-
 
 //   return (
 //     <div>

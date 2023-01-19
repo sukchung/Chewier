@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 // CSS
 
-export default function NavSuk() {
+export default function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-purple">
       <div className="container-fluid">
@@ -32,7 +32,7 @@ export default function NavSuk() {
               <NavLink
                 className="nav-link active"
                 aria-current="page"
-                to="/accounts/new"
+                to="/signup"
               >
                 Sign up
               </NavLink>
