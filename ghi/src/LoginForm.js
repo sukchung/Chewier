@@ -1,5 +1,5 @@
 import classes from "./LoginForm.module.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToken } from "./Auth";
 
@@ -15,25 +15,20 @@ const LogInForm = (props) => {
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsvalid, setFormIsValid] = useState(false);
-  const [token, login] = useToken();
+  const [,login] = useToken();
 
-  useEffect(() => {
-    if (token) {
-      useNavigate("/");
-    }
-    useNavigate()
-  }, [token]);
 
   //   const registerHandler = (event) => {
   //     event.preventDefault();
   //     console.log("Clicked!");
   //     navigate("/signup");
   //   }
-
+  const navigate = useNavigate();
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
       await login(enteredEmail, enteredPassword);
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
