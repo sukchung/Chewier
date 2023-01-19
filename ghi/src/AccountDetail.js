@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
 import { useAuthContext } from "./Auth";
 import './index.css';
 
 function AccountDetail() {
     const { token } = useAuthContext();
-    console.log(token)
     return (
         <>
             <div>
@@ -13,12 +13,12 @@ function AccountDetail() {
                 <p>{token?.account.email}</p>
                 <p>{token?.account.address}</p>
             </div>
-            {/* <div>
-                <a>View Your Pets</a>
+            <div>
+                <Link to="/petslist">View Your Pets</Link>
             </div>
             <div>
-                <a>Add Pet</a>
-            </div> */}
+                <Link to="/pets">Add Pet</Link>
+            </div>
         </>
     );
 }
