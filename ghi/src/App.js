@@ -14,18 +14,13 @@ function GetToken() {
 function App(props) {
   return (
     <BrowserRouter>
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/pets" element ={<PetForm pet = {props.pet}/>} />
-        </Routes>
-      </div>
       <AuthProvider>
         <GetToken />
         <div className="container">
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="petslist" element={<PetList pets={props.pets} />} />
+            <Route path="/pets" element ={<PetForm pet = {props.pet}/>} />
           </Routes>
         </div>
       </AuthProvider>
