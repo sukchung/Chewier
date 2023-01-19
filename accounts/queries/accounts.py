@@ -34,7 +34,12 @@ class AccountRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, first_name, last_name, email, address, hashed_password
+                        SELECT id
+                        , first_name
+                        , last_name
+                        , email
+                        , address
+                        , hashed_password
                         FROM accounts
                         ORDER BY id;
                         """
@@ -45,7 +50,7 @@ class AccountRepository:
         except Exception as e:
             print(e)
             return {
-                "message": "Could not retrieve all accounts.  Please try again."
+                "message": "Could not retrieve all accounts. Please try again."
             }
 
     def create(
@@ -56,8 +61,13 @@ class AccountRepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        INSERT INTO accounts
-                            (first_name, last_name, email, address, hashed_password)
+                        INSERT INTO accounts(
+                            first_name
+                            , last_name
+                            , email
+                            , address
+                            , hashed_password
+                        )
                         VALUES
                             (%s, %s, %s, %s, %s)
                         RETURNING id;
@@ -106,6 +116,7 @@ class AccountRepository:
                         return None
                     return self.record_to_account_out(record)
         except Exception as e:
+            print(e)
             return {
                 "message": "Could not locate that account.  Please try again. "
             }

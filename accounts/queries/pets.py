@@ -71,7 +71,10 @@ class PetRepository:
         except Exception as e:
             print(e)
             return {
-                "message": "Could not retrieve all pets.  Please try your request again."
+                "message": """
+                            Could not retrieve all pets.
+                            Please try your request again.
+                            """
             }
 
     def update_pet(self, pet_id: int, pet: PetIn) -> Union[PetOut, Error]:
