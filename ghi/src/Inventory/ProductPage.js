@@ -11,6 +11,7 @@ import petbanner from "../Images/petbanner.jpg";
 
 export default function ProductPage() {
   const [products, setProducts] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     async function getProducts() {
@@ -23,7 +24,8 @@ export default function ProductPage() {
     }
     getProducts();
   }, []);
-
+  // <label>Search</label>
+  // <input type="text" onChange={e => setQuery(e.target.value)} />
   return (
     <div className="products-page">
       <div className="banner-container">
