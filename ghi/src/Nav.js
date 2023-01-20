@@ -2,6 +2,8 @@
 import { NavLink } from "react-router-dom";
 
 // CSS
+import "./Styles/Nav.css";
+import addtocart from "./Images/addtocart.png";
 
 export default function Nav() {
   return (
@@ -35,6 +37,15 @@ export default function Nav() {
                 to="/signup"
               >
                 Sign up
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link active"
+                aria-current="page"
+                to="/shoppingcart"
+              >
+                <img src={addtocart} id="resize" className="icon" alt="icon" />
               </NavLink>
             </li>
           </ul>
