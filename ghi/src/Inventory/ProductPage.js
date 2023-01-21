@@ -9,9 +9,18 @@ import ProductCard from "./ProductCard";
 import "../Styles/ProductPage.css";
 import petbanner from "../Images/petbanner.jpg";
 
+const getFilteredItems = (query, items) => {
+  if (!query) {
+    return items;
+  }
+  return items.filter((product) => product.name.includes(query))
+}
+
 export default function ProductPage() {
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useState('');
+
+  const filteredItems = getFilteredItems(query, products)
 
   useEffect(() => {
     async function getProducts() {
@@ -24,8 +33,7 @@ export default function ProductPage() {
     }
     getProducts();
   }, []);
-  // <label>Search</label>
-  // <input type="text" onChange={e => setQuery(e.target.value)} />
+
   return (
     <div className="products-page">
       <div className="banner-container">
@@ -36,15 +44,19 @@ export default function ProductPage() {
         />
         <div className="center-text">Chewier Picks</div>
       </div>
-      <Row>
-        {products.map((product) => (
-          <Col sm={12} md={4} lg={3} key={product.id}>
-            <div className="product-card">
+      <div>
+        <label>Search</label>
+        <input type="text" onChange={e => setQuery(e.target.value)} />
+      </div>
+      <div class="container">
+        <div class="row">
+          {filteredItems.map((product) => (
+            <Col sm={12} md={4} lg={3} key={product.id}>
               <ProductCard product={product} />
-            </div>
-          </Col>
-        ))}
-      </Row>
+            </Col>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
