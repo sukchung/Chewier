@@ -84,4 +84,4 @@ build-accounts-service:
     - echo "Deploying on CapRover..."
     - docker run caprover/cli-caprover:v2.1.1 caprover deploy --caproverUrl $CAPROVER_URL --caproverPassword $CAPROVER_PASSWORD --caproverApp $CAPROVER_ACCOUNTS_APP --imageName $CONTAINER_FULL_IMAGE_NAME_WITH_TAG
   only:
-    - mockdeploy
+    - main
