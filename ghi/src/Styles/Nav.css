@@ -2,3 +2,9 @@
   width: 20px;
   height: 20px;
 }
+
+.logout-button {
+  padding: 8px 0;
+  border: none;
+  background: none;
+}
