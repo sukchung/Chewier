@@ -5,10 +5,13 @@ import { Col, Row } from "react-bootstrap";
 // Components
 import ProductCard from "./ProductCard";
 
+
 //CSS
 
-export default function ProductList() {
+export default function ProductList(props) {
+   const { onAdd } = props;
    const [products, setProducts] = useState([]);
+
    // const [cart, setCart] = useState([])
 
    useEffect(() => {
@@ -23,18 +26,20 @@ export default function ProductList() {
       getProducts();
    }, [setProducts]);
 
+
+
    return (
-      <div>
-         <h1>Chewier Picks</h1>
-         <Row>
-            {products.map(product => (
-               <Col sm={12} md={3} lg={2} key={product.id}>
-                  <div className="product-card">
-                     <ProductCard product={product} />
-                  </div>
-               </Col>
-            ))}
-         </Row>
-      </div>
+     <div>
+       <h2>Chewier Picks</h2>
+       <Row>
+         {products.map((product) => (
+           <Col sm={12} md={3} lg={2} key={product.id}>
+             <div className="product-card">
+               <ProductCard product={product} id={product.id} onAdd={onAdd} />
+             </div>
+           </Col>
+         ))}
+       </Row>
+     </div>
    );
 }
