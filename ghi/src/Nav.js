@@ -37,6 +37,14 @@ export default function Nav() {
                 Sign up
               </NavLink>
             </li>
+            <li>
+              <NavCartButton
+                onClick={props.onShowCart}
+                countCartItems={countCartItems}
+                className="nav-link active"
+                to="/cart"
+              />
+            </li>
           </ul>
         </div>
       </div>
