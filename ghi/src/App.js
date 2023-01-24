@@ -7,11 +7,7 @@ import PetForm from "./PetForm";
 import PetList from "./PetList";
 import Nav from "./Nav";
 import SignupForm from "./Accounts/SignupForm";
-<<<<<<< HEAD
 import ProductPage from "./Inventory/ProductPage";
-=======
-import ProductList from "./Inventory/ProductList";
->>>>>>> main
 import LogInForm from "./LoginForm";
 import "./App.css";
 
@@ -28,11 +24,7 @@ function App(props) {
         <Nav />
         <Routes>
           <Route path="/" element={<MainPage />} />
-<<<<<<< HEAD
           <Route path="products" element={<ProductPage />} />
-=======
-          <Route path="products" element={<ProductList />} />
->>>>>>> main
           <Route path="signup" element={<SignupForm />} />
           <Route path="login" element={<LogInForm />} />
           <Route path="petslist" element={<PetList pets={props.pets} />} />
