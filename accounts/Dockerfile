@@ -5,11 +5,13 @@ WORKDIR /app
 # Copy the top-level files
 COPY requirements.txt requirements.txt
 COPY main.py main.py
+COPY authenticator.py authenticator.py
 
 # Copy all of the directories that contain your application
 # code
 COPY routers routers
 COPY queries queries
+COPY migrations migrations
 
 RUN pip install -r requirements.txt
-CMD uvicorn main:app --reload --host 0.0.0.0
+CMD python -m migrations up && uvicorn main:app --reload --host 0.0.0.0
