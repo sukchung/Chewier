@@ -11,9 +11,6 @@ export async function getTokenInternal() {
   try {
     const response = await fetch(url, {
       credentials: "include",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
     });
     if (response.ok) {
       const data = await response.json();
