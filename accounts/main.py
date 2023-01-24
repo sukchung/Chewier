@@ -13,6 +13,7 @@ app.include_router(pets.router)
 
 origins = [
     "http://localhost:3000",
+    "https://group-1-halas.gitlab.io/",
     os.environ.get("CORS_HOST", None),
 ]
 
