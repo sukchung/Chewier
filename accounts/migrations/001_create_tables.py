@@ -42,7 +42,8 @@ steps = [
             protein VARCHAR(1000) NOT NULL,
             state VARCHAR(1000) NOT NULL,
             account_id INT NOT NULL REFERENCES accounts(id),
-        )
+            price NUMERIC DEFAULT 70.99
+        );
         """,
         """
         DROP TABLE customs

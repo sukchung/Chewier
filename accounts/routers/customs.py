@@ -14,3 +14,7 @@ def get_one_custom(custom_id: int, response: Response, repo: CustomRepository = 
     if custom is None:
         response.status_code = 404
     return custom
+
+@router.get("/customs", response_model=Union[List[CustomOut], Error])
+def get_all(repo: CustomRepository = Depends()):
+    return repo.get_all()

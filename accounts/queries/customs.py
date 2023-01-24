@@ -25,6 +25,7 @@ class CustomOut(BaseModel):
     protein: str
     state: str
     account_id: int
+    price: float
 
 
 class CustomRepository:
@@ -59,7 +60,52 @@ class CustomRepository:
                     ],
                 )
                 id = result.fetchone()[0]
-                return self.custom_in_to_out(id, custom)
+                price = 70.99
+                return self.custom_in_to_out(id, price, custom)
+
+    def get_all(self) -> Union[List[CustomOut], Error]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id
+                            , goal
+                            , breed
+                            , age
+                            , allergies
+                            , activity
+                            , protein
+                            , state
+                            , account_id
+                            , price
+                        FROM customs
+                        ORDER BY id;
+                        """
+                    )
+                    return [
+                        CustomOut(
+                            id=record[0],
+                            goal=record[1],
+                            breed=record[2],
+                            age=record[3],
+                            allergies=record[4],
+                            activity=record[5],
+                            protein=record[6],
+                            state=record[7],
+                            account_id=record[8],
+                            price=record[9],
+                        )
+                        for record in result
+                    ]
+        except Exception as e:
+            print(e)
+            return {
+                "message": """
+                            Could not retrieve all custom forms.
+                             Please try your request again.
+                            """
+            }
 
     def get_one(self, custom_id: int) -> Optional[CustomOut]:
         try:
@@ -78,6 +124,7 @@ class CustomRepository:
                             , protein
                             , state
                             , account_id
+                            , price
                         FROM customs
                         WHERE id = %s
                         """,
@@ -93,10 +140,9 @@ class CustomRepository:
 
 
 
-
-    def custom_in_to_out(self, id: int, custom: CustomIn):
+    def custom_in_to_out(self, id: int, price: float, custom: CustomIn):
             old_data = custom.dict()
-            return CustomOut(id=id, **old_data)
+            return CustomOut(id=id, **old_data, price=price)
 
     def record_to_custom_out(self, record):
         return CustomOut(
@@ -109,4 +155,5 @@ class CustomRepository:
             protein=record[6],
             state=record[7],
             account_id=record[8],
+            price=record[9],
         )
