@@ -5,6 +5,8 @@ stages:
 
 # Run flake8 to check for code quality
 lint-test-job:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $DEPLOY_TEST
   image: python:3-bullseye
   stage: test
   script:
@@ -25,6 +27,8 @@ lint-test-job:
 
 # Build the React/JavaScript front-end
 build-front-end-job:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $DEPLOY_TEST
   stage: build
   image: node:lts-bullseye
   needs:
@@ -49,7 +53,7 @@ build-front-end-job:
 pages:
   stage: deploy
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH == $DEPLOY_TEST
   dependencies:
     - build-front-end-job
   needs:
@@ -61,6 +65,8 @@ pages:
       - public
 
 build-accounts-service:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $DEPLOY_TEST
   image: docker:19.03.1
   stage: build
   services:
@@ -82,10 +88,10 @@ build-accounts-service:
     - echo $CONTAINER_FULL_IMAGE_NAME_WITH_TAG
     - echo "Deploying on CapRover..."
     - docker run caprover/cli-caprover:v2.1.1 caprover deploy --caproverUrl $CAPROVER_URL --caproverPassword $CAPROVER_PASSWORD --caproverApp $CAPROVER_ACCOUNTS_APP --imageName $CONTAINER_FULL_IMAGE_NAME_WITH_TAG
-  only:
-    - main
 
 build-inventory-service:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $DEPLOY_TEST # CHANGE BACK TO CI_DEFAULT_BRANCH WHEN DEPLOYING ON MAIN
   image: docker:19.03.1
   stage: build
   services:
@@ -106,6 +112,4 @@ build-inventory-service:
     - docker push "$CONTAINER_FULL_IMAGE_NAME_WITH_TAG"
     - echo $CONTAINER_FULL_IMAGE_NAME_WITH_TAG
     - echo "Deploying on CapRover..."
-    - docker run caprover/cli-caprover:v2.1.1 caprover deploy --caproverUrl $CAPROVER_URL --caproverPassword $CAPROVER_PASSWORD --caproverApp $CAPROVER_ACCOUNTS_APP --imageName $CONTAINER_FULL_IMAGE_NAME_WITH_TAG
-  only:
-    - main
+    - docker run caprover/cli-caprover:v2.1.1 caprover deploy --caproverUrl $CAPROVER_URL --caproverPassword $CAPROVER_PASSWORD --caproverApp $CAPROVER_INVENTORY_APP --imageName $CONTAINER_FULL_IMAGE_NAME_WITH_TAG
