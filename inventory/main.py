@@ -1,4 +1,4 @@
-import os
+# import os
 from fastapi import FastAPI
 from routers import inventory
 from fastapi.middleware.cors import CORSMiddleware
@@ -7,10 +7,10 @@ app = FastAPI()
 
 app.include_router(inventory.router)
 
+# os.environ.get("CORS_HOST", None),
 origins = [
     "http://localhost:3000",
     "https://group-1-halas.gitlab.io/",
-    os.environ.get("CORS_HOST", None),
 ]
 
 app.add_middleware(
