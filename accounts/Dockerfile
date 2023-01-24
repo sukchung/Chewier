@@ -13,5 +13,5 @@ COPY routers routers
 COPY queries queries
 COPY migrations migrations
 
-RUN pip install -r requirements.txt
+RUN python -m pip install -r requirements.txt
 CMD python -m migrations up && uvicorn main:app --reload --host 0.0.0.0
