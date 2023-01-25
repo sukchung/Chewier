@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../Auth";
 
 const Cart = (props) => {
-  const { setCartItems, cartItems, onAdd, onRemove } = props;
+  const { cartItems, onAdd, onRemove } = props;
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const taxPrice = itemsPrice * 0.0725;
   const shippingPrice = itemsPrice > 150 ? 0 : 9.99;
@@ -28,7 +28,7 @@ const Cart = (props) => {
       }
     }
     getCustoms();
-  }, [setCustoms]);
+  }, [setCustoms, token?.account.id]);
 
   // clone custom food and cart items into cart clone
   useEffect(() => {
