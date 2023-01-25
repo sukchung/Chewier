@@ -82,24 +82,6 @@ const Cart = (props) => {
   return (
     <CartModal onClose={props.onClose}>
       <h2>Cart Items</h2>
-      {/* <div>
-        {customs
-          .filter((custom) => custom.account_id === token?.account.id)
-          .map((custom) => (
-            <div className="row" key={custom.id}>
-              <div className="col-2">{token?.account.first_name}</div>
-              <div className="col-2">
-                <button onClick={() => onAdd(custom)} className="add">
-                  +
-                </button>
-                <button onClick={() => onRemove(custom)} className="remove">
-                  -
-                </button>
-              </div>
-              <div className="col-2 text-right">{custom.price}</div>
-            </div>
-          ))}
-      </div> */}
       <div>
         {cartItemsClone.length === 0 && <div>Cart Is Empty</div>}
         {cartItemsClone.map((item) => (

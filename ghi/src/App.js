@@ -93,7 +93,9 @@ function App(props) {
       </AuthProvider>
     </BrowserRouter>
   );
+
 }
+
 
 export default App;
 

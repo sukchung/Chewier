@@ -5,6 +5,7 @@ import { Col, Row } from "react-bootstrap";
 // Components
 import ProductCard from "./ProductCard";
 
+
 //CSS
 
 export default function ProductList(props) {
