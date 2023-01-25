@@ -14,6 +14,7 @@ class CustomIn(BaseModel):
     protein: str
     state: str
     account_id: int
+    name: str
 
 class CustomOut(BaseModel):
     id: int
@@ -26,6 +27,7 @@ class CustomOut(BaseModel):
     state: str
     account_id: int
     price: float
+    name: str
 
 
 class CustomRepository:
@@ -43,9 +45,10 @@ class CustomRepository:
                         , protein
                         , state
                         , account_id
+                        , name
                     )
                     VALUES
-                        (%s, %s, %s, %s, %s, %s, %s, %s)
+                        (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                     RETURNING id;
                     """,
                     [
@@ -57,6 +60,7 @@ class CustomRepository:
                         custom.protein,
                         custom.state,
                         custom.account_id,
+                        custom.name,
                     ],
                 )
                 id = result.fetchone()[0]
@@ -79,6 +83,7 @@ class CustomRepository:
                             , state
                             , account_id
                             , price
+                            , name
                         FROM customs
                         ORDER BY id;
                         """
@@ -95,6 +100,7 @@ class CustomRepository:
                             state=record[7],
                             account_id=record[8],
                             price=record[9],
+                            name=record[10]
                         )
                         for record in result
                     ]
@@ -125,6 +131,7 @@ class CustomRepository:
                             , state
                             , account_id
                             , price
+                            , name
                         FROM customs
                         WHERE id = %s
                         """,
@@ -156,4 +163,5 @@ class CustomRepository:
             state=record[7],
             account_id=record[8],
             price=record[9],
+            name=record[10],
         )

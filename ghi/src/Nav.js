@@ -1,9 +1,12 @@
 // Dependencies
 import { NavLink } from "react-router-dom";
+import NavCartButton from "./Cart/NavCartButton";
 
 // CSS
 
-export default function Nav() {
+export default function Nav(props) {
+  const { countCartItems } = props;
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-purple">
       <div className="container-fluid">

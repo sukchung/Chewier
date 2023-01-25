@@ -30,6 +30,7 @@ function CustomizationForm(props) {
   const [activity, setActivity] = useState("");
   const [protein, setProtein] = useState("");
   const [state, setState] = useState("");
+  const [name, setName] = useState("");
   const { token } = useAuthContext();
 
   const handleSubmit = async (event) => {
@@ -44,6 +45,7 @@ function CustomizationForm(props) {
       protein: protein,
       state: state,
       account_id: accountId,
+      name: name,
     };
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/customs`;
     const fetchConfig = {
@@ -71,6 +73,7 @@ function CustomizationForm(props) {
     setActivity("");
     setProtein("");
     setState("");
+    setName("");
   };
 
   return (
@@ -135,6 +138,14 @@ function CustomizationForm(props) {
               labelText="How do you want the state of your custom food?"
               value={state}
               onChange={(e) => setState(e.target.value)}
+              type="text"
+            />
+            <BootstrapInput
+              id="setName"
+              placeholder="Fido's Yummy Blend!"
+              labelText="Name your custom food blend!"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               type="text"
             />
             <button type="submit" className="btn btn-primary">

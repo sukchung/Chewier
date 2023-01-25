@@ -1,6 +1,7 @@
 // Dependencies
 import { AuthProvider, useToken } from "./Auth";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import AccountDetail from "./AccountDetail";
 import MainPage from "./MainPage";
 import PetForm from "./PetForm";
@@ -73,6 +74,7 @@ function App(props) {
                     onRemove={onRemove}
                     cartItems={cartItems}
                     onClose={hideCartHandler}
+                    setCartItems={setCartItems}
                   />
                 )}
               </>
