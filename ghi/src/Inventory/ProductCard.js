@@ -36,11 +36,11 @@ export default function ProductCard({ product }) {
         )}
       </div>
       <Card.Body className="card-text-padding">
-        <Card.Text>
-          <div className="my-3">{product.name}</div>
+        <Card.Text className="my-3">
+        {product.name}
         </Card.Text>
-        <Card.Text>
-          <div className="my-3">${product.price}</div>
+        <Card.Text className="my-3">
+        ${product.price}
         </Card.Text>
       </Card.Body>
     </Card>
