@@ -12,6 +12,8 @@ import ProductList from "./Inventory/ProductList";
 import LogInForm from "./LoginForm";
 import Cart from "./Cart/Cart";
 import "./App.css";
+import CustomizationForm from "./CustomizationForm";
+
 
 function GetToken() {
   useToken();
@@ -86,6 +88,7 @@ function App(props) {
               path="account"
               element={<AccountDetail account={props.account} />}
             />
+            <Route path="custom" element={<CustomizationForm />} />
             {/* <Route
               element={
                 cartIsShown && (

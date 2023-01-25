@@ -23,10 +23,10 @@ export default function ProductCard(props) {
       <Card.Img className="rounded-corners" src={product.picture_url} />
       <Card.Body>
         <Card.Title>
-          <p>{product.name}</p>
+          {product.name}
         </Card.Title>
-        <Card.Text>
-          <div className="my-3">${product.price}</div>
+        <Card.Text className="my-3">
+          ${product.price}
         </Card.Text>
         {/* <div>
             <ProductItemForm/>
