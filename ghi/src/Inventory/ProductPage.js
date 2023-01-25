@@ -11,18 +11,25 @@ import petbanner from "../Images/petbanner.jpg";
 
 export default function ProductPage() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getProducts() {
+      setLoading(true);
       const url = `${process.env.REACT_APP_INVENTORY_HOST}/products`;
       const response = await fetch(url);
       if (response.ok) {
         const data = await response.json();
         setProducts(data);
       }
+      setLoading(false);
     }
     getProducts();
   }, []);
+
+  if (loading) {
+    return <div>Loading some Chewier goodies...</div>
+  }
 
   return (
     <div className="products-page">
@@ -35,13 +42,15 @@ export default function ProductPage() {
         <div className="center-text">Chewier Picks</div>
       </div>
       <Row>
-        {products.map((product) => (
-          <Col sm={12} md={4} lg={3} key={product.id}>
-            <div className="product-card">
-              <ProductCard product={product} />
-            </div>
-          </Col>
-        ))}
+        {Array.isArray(products) &&
+          products.length > 0 &&
+          products.map((product) => (
+            <Col sm={12} md={4} lg={3} key={product.id}>
+              <div className="product-card">
+                <ProductCard product={product} />
+              </div>
+            </Col>
+          ))}
       </Row>
     </div>
   );
