@@ -26,7 +26,6 @@ accounts-api-test-job:
   variables:
     DATABASE_URL: postgres://postgres:a55de3b00473aa58@srv-captain--postgres1/postgres
     SIGNING_KEY: chewieristhesigningkey
-    POSTGRES_PASSWORD: test
   script:
     - cd accounts
     - pip install -r requirements.txt
@@ -40,7 +39,6 @@ inventory-api-test-job:
   variables:
     DATABASE_URL: postgres://postgres:b8b726d957b0daa0@srv-captain--postgres2/postgres
     SIGNING_KEY: chewieristhesigningkey
-    POSTGRES_PASSWORD: test
   script:
     - cd inventory
     - pip install -r requirements.txt
