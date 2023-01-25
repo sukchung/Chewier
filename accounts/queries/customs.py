@@ -2,8 +2,10 @@ from pydantic import BaseModel
 from queries.pool import pool
 from typing import List, Union, Optional
 
+
 class Error(BaseModel):
     message: str
+
 
 class CustomIn(BaseModel):
     goal: str
@@ -15,6 +17,7 @@ class CustomIn(BaseModel):
     state: str
     account_id: int
     name: str
+
 
 class CustomOut(BaseModel):
     id: int
@@ -100,7 +103,7 @@ class CustomRepository:
                             state=record[7],
                             account_id=record[8],
                             price=record[9],
-                            name=record[10]
+                            name=record[10],
                         )
                         for record in result
                     ]
@@ -135,7 +138,7 @@ class CustomRepository:
                         FROM customs
                         WHERE id = %s
                         """,
-                        [custom_id]
+                        [custom_id],
                     )
                     record = result.fetchone()
                     if record is None:
@@ -145,11 +148,9 @@ class CustomRepository:
             print(e)
             return {"message": "Could not get that custom"}
 
-
-
     def custom_in_to_out(self, id: int, price: float, custom: CustomIn):
-            old_data = custom.dict()
-            return CustomOut(id=id, **old_data, price=price)
+        old_data = custom.dict()
+        return CustomOut(id=id, **old_data, price=price)
 
     def record_to_custom_out(self, record):
         return CustomOut(
