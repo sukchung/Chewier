@@ -18,6 +18,19 @@ lint-test-job:
     - flake8 inventory
 
 # Run the unit tests
+accounts-api-test-job:
+  image: python:3-bullseye
+  stage: test
+  needs:
+    - lint-test-job
+  variables:
+    DATABASE_URL: postgres://postgres:a55de3b00473aa58@srv-captain--postgres1/postgres
+    SIGNING_KEY: chewieristhesigningkey
+  script:
+    - cd inventory
+    - pip install -r requirements.txt
+    - python -m pytest
+
 inventory-api-test-job:
   image: python:3-bullseye
   stage: test

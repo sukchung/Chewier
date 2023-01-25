@@ -20,15 +20,10 @@ class FakeFoodBrandRepository:
 
 
 def test_create_food_brand():
-    food_brand_in = FoodBrandIn(
-        name="Blue Buffalo",
-        animal_type="Dog"
-    )
+    food_brand_in = FoodBrandIn(name="Blue Buffalo", animal_type="Dog")
 
     expected_food_brand = FoodBrandOut(
-        id=1,
-        name="Blue Buffalo",
-        animal_type="Dog"
+        id=1, name="Blue Buffalo", animal_type="Dog"
     )
 
     app.dependency_overrides[FoodBrandRepository] = FakeFoodBrandRepository

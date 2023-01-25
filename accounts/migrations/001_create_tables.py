@@ -30,4 +30,24 @@ steps = [
         DROP TABLE pets
         """,
     ],
+    [
+        """
+        CREATE TABLE customs(
+            id SERIAL PRIMARY KEY NOT NULL,
+            goal VARCHAR(1000) NOT NULL,
+            breed VARCHAR(1000) NOT NULL,
+            age VARCHAR(1000) NOT NULL,
+            allergies VARCHAR(1000) NOT NULL,
+            activity VARCHAR(1000) NOT NULL,
+            protein VARCHAR(1000) NOT NULL,
+            state VARCHAR(1000) NOT NULL,
+            account_id INT NOT NULL REFERENCES accounts(id),
+            price NUMERIC DEFAULT 70.99,
+            name VARCHAR(1000) DEFAULT 'Custom Food' NOT NULL
+        );
+        """,
+        """
+        DROP TABLE customs
+        """,
+    ],
 ]
