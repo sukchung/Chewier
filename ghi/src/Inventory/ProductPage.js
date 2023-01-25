@@ -28,7 +28,7 @@ export default function ProductPage() {
   }, []);
 
   if (loading) {
-    return <div>Loading some Chewier goodies...</div>
+    return <div className="center-div">Loading some Chewier goodies...</div>;
   }
 
   return (
