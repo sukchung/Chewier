@@ -1,3 +1,121 @@
+.rounded-corners {
+  border-radius: 5%;
+}
+
+.button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #a892ee;
+  border: 0.1rem solid #e7e7e7;
+  padding: 0.2rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+  width: 100%;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #510674;
+  border-color: #510674;
+  color: white;
+}
+
+.actions .button--alt {
+  color: #ffffff;
+}
+
+.actions .button {
+  background-color: #a892ee;
+  color: white;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.row.center {
+  align-items: center;
+}
+.col-1 {
+  flex: 1;
+}
+.col-2 {
+  flex: 2;
+}
+.block {
+  background-color: #e0e0e0;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+.text-right {
+  text-align: right;
+}
+button.add {
+  background-color: #40c0f0;
+  width: 1.5rem;
+}
+button.remove {
+  background-color: #f04040;
+  width: 1.5rem;
+}
+
+.button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #a892ee;
+  border: 0.1rem solid #e7e7e7;
+  padding:  0.2rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+  width: 100%
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #510674;
+  border-color: #510674;
+  color: white;
+}
+
+.actions .button--alt {
+  color: #ffffff;
+}
+
+.actions .button {
+  background-color: #a892ee;
+  color: white;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.row.center {
+  align-items: center;
+}
+.col-1 {
+  flex: 1;
+}
+.col-2 {
+  flex: 2;
+}
+.block {
+  background-color: #e0e0e0;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+.text-right {
+  text-align: right;
+}
+button.add {
+  background-color: #40c0f0;
+  width: 1.5rem;
+}
+button.remove {
+  background-color: #f04040;
+  width: 1.5rem;
+}
+
 .card-text-padding {
   padding: 16px 0;
 }
