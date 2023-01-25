@@ -4,8 +4,6 @@ import { Card } from "react-bootstrap";
 // import ProductItemForm from "./FoodProductForm";
 
 
-
-
 // CSS
 import "../Styles/ProductCard.css";
 
