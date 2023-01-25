@@ -5,12 +5,25 @@ import { Col, Row } from "react-bootstrap";
 // Components
 import ProductCard from "./ProductCard";
 
+
 //CSS
 import "../Styles/ProductPage.css";
 import petbanner from "../Images/petbanner.jpg";
 
+const getFilteredItems = (query, items) => {
+  if (!query) {
+    return items;
+  }
+  return items.filter((product) => product.name.includes(query))
+}
+
+
 export default function ProductPage() {
   const [products, setProducts] = useState([]);
+  const [query, setQuery] = useState('');
+  const filteredItems = getFilteredItems(query, products)
+  const [copyProducts, setCopyProducts] = useState([]);
+
 
   useEffect(() => {
     async function getProducts() {
@@ -19,10 +32,25 @@ export default function ProductPage() {
       if (response.ok) {
         const data = await response.json();
         setProducts(data);
+        setCopyProducts(data);
       }
     }
     getProducts();
   }, []);
+
+  const handleBtns = (e) =>{
+  let word = e.target.value;
+  if (word === "All") {
+     setProducts(copyProducts)
+  } else if (word === "Dry") {
+     const filtered = products.filter(item => item.state === "Dry")
+     setProducts(filtered)
+  } else if (word === "Wet") {
+     const filtered = products.filter(item => item.state === "Wet")
+     setProducts(filtered)
+  }
+ }
+
 
   return (
     <div className="products-page">
@@ -34,11 +62,26 @@ export default function ProductPage() {
         />
         <div className="center-text">Chewier Picks</div>
       </div>
+      <div>
+        <label>Search</label>
+        <input type="text" onChange={e => setQuery(e.target.value)} />
+      </div>
+      <div className = "btns">
+      <button value="All" onClick={handleBtns}>
+          All
+        </button>
+        <button value="Dry" onClick={handleBtns}>
+          Dry
+        </button>
+        <button value="Wet" onClick={handleBtns}>
+          Wet
+        </button>
+      </div>
       <Row>
-        {products.map((product) => (
-          <Col sm={12} md={4} lg={3} key={product.id}>
+        {filteredItems.map((product) => (
+          <Col sm={12} md={3} lg={2} key={product.id}>
             <div className="product-card">
-              <ProductCard product={product} />
+              <ProductCard product={product} id={product.id} />
             </div>
           </Col>
         ))}
