@@ -13,6 +13,7 @@ expected_post_resp = PetOut(
     account_id=1,
 )
 
+
 class TestMockPetQueries:
     def get_all_pets(self):
         return [expected_post_resp]
