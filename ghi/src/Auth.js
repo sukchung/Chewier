@@ -76,7 +76,13 @@ export function useToken() {
   async function logout() {
     if (token) {
       const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/token`;
-      await fetch(url, { method: "delete", credentials: "include" });
+      await fetch(url, {
+        method: "delete",
+        credentials: "include",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       internalToken = null;
       setToken(null);
       navigate("/");
@@ -92,6 +98,9 @@ export function useToken() {
       method: "post",
       credentials: "include",
       body: form,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
     if (response.ok) {
       const token = await getTokenInternal();
@@ -115,6 +124,7 @@ export function useToken() {
       }),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
     });
     if (response.ok) {
