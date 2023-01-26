@@ -1,0 +1,57 @@
+h1 {
+    text-align: center;
+    padding-bottom: 1%;
+}
+
+.container {
+    width: 60%;
+    padding: 1% 1% 0% 1%;
+    border: 1px solid dimgray;
+    border-radius: 15px;
+}
+
+.info {
+    width: 100%;
+    padding-top: 1rem;
+    padding-left: 3%;
+}
+
+.buttons {
+    width: 100%;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
+.btn-primary:hover {
+    background-color: rgb(98, 41, 151);
+    border-color: rgb(98, 41, 151);
+}
+
+h2 {
+    font-size: 40px;
+}
+
+.text {
+    font-size: 25px;
+    padding-bottom: 3rem;
+}
+
+.bottom-text {
+    padding-bottom: 1rem;
+}
+
+.add {
+    padding-bottom: 2rem;
+}
+.view {
+    padding-bottom: 2rem;
+}
+
+img {
+    border-radius: 15px;
+    width: 80%;
+}
