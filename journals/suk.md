@@ -1,5 +1,7 @@
 ## Jan. 24, 2022
 
+## Jan. 24, 2022
+
 Today, I worked on:
 
 - I tried working on fixing the CORS issue that
@@ -106,7 +108,7 @@ Today, I worked on:
 Today, I worked on:
 
 - We are still working on our inventory
-  microservice. Alex, Lauren, and I are
+  microservice. Hutch, Lauren, and I are
   troubleshooting bugs on why the routers are not
   showing up on FastAPI.
 - We are watching Curtis' videos on Learn, and
@@ -117,7 +119,7 @@ Today, I worked on:
 
 Today, I worked on:
 
-- Alex, Lauren, and I are using Live Share to
+- Hutch, Lauren, and I are using Live Share to
   pair program. We are creating our API
   endpoints and setting up routers and queries.
 - We also learned how to use and read pgAdmin.
@@ -132,7 +134,7 @@ Today, I worked on:
   weekend, we read and reviewed the FastAPI
   material. I also created some mock code for the
   inventory backend.
-- Alex, Lauren, and I used Live Share for the
+- Hutch, Lauren, and I used Live Share for the
   first time. It is sort of like Google Docs and
   you can see who is doing what and where they
   are in the code.

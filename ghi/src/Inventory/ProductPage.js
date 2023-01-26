@@ -18,11 +18,12 @@ const getFilteredItems = (query, items) => {
 }
 
 
-export default function ProductPage() {
+export default function ProductPage(props) {
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useState('');
   const filteredItems = getFilteredItems(query, products)
   const [copyProducts, setCopyProducts] = useState([]);
+  const { onAdd } = props;
 
   const [loading, setLoading] = useState(true);
 
@@ -39,7 +40,7 @@ export default function ProductPage() {
       setLoading(false);
     }
     getProducts();
-  }, []);
+  }, [setProducts]);
 
   const handleBtns = (e) =>{
   let word = e.target.value;
@@ -91,7 +92,7 @@ export default function ProductPage() {
         {filteredItems.map((product) => (
           <Col sm={12} md={3} lg={2} key={product.id}>
             <div className="product-card">
-              <ProductCard product={product} id={product.id} />
+              <ProductCard product={product} id={product.id} onAdd={onAdd} />
             </div>
           </Col>
         ))}
@@ -99,13 +100,3 @@ export default function ProductPage() {
     </div>
   );
 }
-
-// {Array.isArray(products) &&
-//   products.length > 0 &&
-//   products.map((product) => (
-//     <Col sm={12} md={4} lg={3} key={product.id}>
-//       <div className="product-card">
-//         <ProductCard product={product} />
-//       </div>
-//     </Col>
-//   ))}
