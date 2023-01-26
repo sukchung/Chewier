@@ -14,4 +14,5 @@ COPY queries queries
 COPY migrations migrations
 
 RUN python -m pip install -r requirements.txt
-CMD python -m migrations up && uvicorn main:app --reload --host 0.0.0.0
+CMD uvicorn main:app --reload --host 0.0.0.0
+# python -m migrations up &&
