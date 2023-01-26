@@ -1,5 +1,7 @@
 ## Jan. 24, 2022
 
+## Jan. 24, 2022
+
 Today, I worked on:
 
 - I tried working on fixing the CORS issue that
