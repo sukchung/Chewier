@@ -15,7 +15,7 @@ app.include_router(customs.router)
 # os.environ.get("CORS_HOST", None),
 origins = [
     "http://localhost:3000",
-    "https://group-1-halas.gitlab.io/",
+    "https://group-1-halas.gitlab.io",
     "CORS_HOST",
 ]
 
