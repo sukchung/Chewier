@@ -6,22 +6,30 @@
 Today I worked on:
 Filter buttons and unit tests.
 
-I finalized the filter button code with Adrien, and created my unit test.  We then continued working on
+I finalized the filter button code with Adrien, and created my unit test.  We then continued working on deployment.
+
+
 
 01/24/23
 Today I worked on:
 Filter buttons
 
 
+
 01/23/23
 Today I worked on:
+Filter buttons
+
+I reviewed some resources online (React documentation, YouTube videos, assorted tutorials, etc) to learn more about how to create a filter button that would let us filter the inventory.  I began some code mockup.
+
+
 
 01/20/23
 Today I worked on:
 
 Suk and I began working on CI/CD, with setting up the Caprover Instance and deploying the accounts microservice.
 
-So far deployment seems easier than expected, but I'm expecting that to change 
+So far deployment seems easier than expected, but I'm expecting that to change
 
 
 
