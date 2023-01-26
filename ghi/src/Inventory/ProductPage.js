@@ -18,15 +18,18 @@ const getFilteredItems = (query, items) => {
 }
 
 
-export default function ProductPage() {
+export default function ProductPage(props) {
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useState('');
   const filteredItems = getFilteredItems(query, products)
   const [copyProducts, setCopyProducts] = useState([]);
+  const { onAdd } = props;
 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getProducts() {
+      setLoading(true);
       const url = `${process.env.REACT_APP_INVENTORY_HOST}/products`;
       const response = await fetch(url);
       if (response.ok) {
@@ -34,9 +37,10 @@ export default function ProductPage() {
         setProducts(data);
         setCopyProducts(data);
       }
+      setLoading(false);
     }
     getProducts();
-  }, []);
+  }, [setProducts]);
 
   const handleBtns = (e) =>{
   let word = e.target.value;
@@ -51,6 +55,13 @@ export default function ProductPage() {
   }
  }
 
+  if (loading) {
+    return (
+      <div className="center-div">
+        Loading some Chewier goodies... ᶠᵉᵉᵈ ᵐᵉ /ᐠ-ⱉ-ᐟ\ﾉ
+      </div>
+    );
+  }
 
   return (
     <div className="products-page">
@@ -81,7 +92,7 @@ export default function ProductPage() {
         {filteredItems.map((product) => (
           <Col sm={12} md={3} lg={2} key={product.id}>
             <div className="product-card">
-              <ProductCard product={product} id={product.id} />
+              <ProductCard product={product} id={product.id} onAdd={onAdd} />
             </div>
           </Col>
         ))}

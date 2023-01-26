@@ -5,7 +5,6 @@ WORKDIR /app
 # Copy the top-level files
 COPY requirements.txt requirements.txt
 COPY main.py main.py
-COPY authenticator.py authenticator.py
 
 # Copy all of the directories that contain your application
 # code

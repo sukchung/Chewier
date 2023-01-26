@@ -32,3 +32,13 @@
 .row {
   width: 100%;
 }
+
+/*
+.center-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Pacifico", "Unbounded";
+  font-size: 20px;
+} */

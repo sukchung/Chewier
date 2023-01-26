@@ -1,16 +1,17 @@
 // Dependencies
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useToken } from "./Auth.js";
+import { useState, useEffect } from "react";
+import { useToken } from "./Auth";
+import { NavLink, useNavigate } from "react-router-dom";
+import NavCartButton from "./Cart/NavCartButton";
 
 // CSS
 import "./Styles/Nav.css";
-import addtocart from "./Images/addtocart.png";
+// import addtocart from "./Images/addtocart.png";
 
-export default function Nav() {
+export default function Nav(props) {
   const [loggedIn, setLoggedIn] = useState(false);
   const [token, , logout] = useToken();
+  const { countCartItems } = props;
 
   const navigate = useNavigate();
 
@@ -62,15 +63,6 @@ export default function Nav() {
                 </NavLink>
               </li>
             )}
-            <li className="nav-item">
-              <NavLink
-                className="nav-link active"
-                aria-current="page"
-                to="/shoppingcart"
-              >
-                <img src={addtocart} id="resize" className="icon" alt="icon" />
-              </NavLink>
-            </li>
             {loggedIn ? (
               <li className="nav-item">
                 <button onClick={handleLogout} className="logout-button">
@@ -88,6 +80,14 @@ export default function Nav() {
                 </NavLink>
               </li>
             )}
+            <li>
+              <NavCartButton
+                onClick={props.onShowCart}
+                countCartItems={countCartItems}
+                className="nav-link active"
+                to="/cart"
+              />
+            </li>
           </ul>
         </div>
       </div>
