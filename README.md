@@ -6,4 +6,5 @@ Team:
 - Alexander McKelvey
 - Hutch Rhees
 - Lauren Lowe
+- Robbie Nacario
 - Suk Chung
