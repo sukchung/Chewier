@@ -24,7 +24,7 @@ accounts-api-test-job:
   needs:
     - lint-test-job
   variables:
-    DATABASE_URL: postgres://postgres:a55de3b00473aa58@srv-captain--postgres1/postgres
+    DATABASE_URL: postgres://postgres:cef2b534cc7aac5e@srv-captain--postgres1/postgres
     SIGNING_KEY: chewieristhesigningkey
   script:
     - cd inventory
