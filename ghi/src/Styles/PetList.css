@@ -1,0 +1,9 @@
+h1 {
+    text-align:center;
+}
+
+th, td {
+  width: 160px;
+  text-align: center;
+  vertical-align: middle;
+}
