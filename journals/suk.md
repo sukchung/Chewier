@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Jan. 26, 2023
 
 Today, I worked on:
@@ -36,11 +35,6 @@ Today, I worked on:
   tomorrow.
 
 ## Jan. 24, 2023
-=======
-## Jan. 24, 2022
-
-## Jan. 24, 2022
->>>>>>> development2
 
 Today, I worked on:
 
@@ -52,11 +46,7 @@ Today, I worked on:
   inventory endpoints, so I am happy about that.
   Now, I have to finish working on deployment.
 
-<<<<<<< HEAD
 ## Jan. 23, 2023
-=======
-## Jan. 23, 2022
->>>>>>> development2
 
 Today, I worked on:
 
@@ -68,20 +58,12 @@ Today, I worked on:
 - I was later able to deploy both microservices
   and see the deployed website for the first time.
 
-<<<<<<< HEAD
 ## Jan. 20, 2023
 
 Today, I worked on:
 
 - Today, I finished the products page. I also
   added some UI styling to make it look good. I
-=======
-## Jan. 20, 2022
-
-Today, I worked on:
-
-- Today, I finished the products page, and I
->>>>>>> development2
   started working on deployment today. I watched
   Andrew's recording on deployment, and I also
   asked for help. James, Robbie, and Rosheen
@@ -91,11 +73,7 @@ Today, I worked on:
   that will log out the user and hide the sign up
   and log in links when logged in.
 
-<<<<<<< HEAD
 ## Jan. 19, 2023
-=======
-## Jan. 19, 2022
->>>>>>> development2
 
 Today, I worked on:
 
@@ -107,11 +85,7 @@ Today, I worked on:
 - I am going to review CI/CD to get more familiar
   with it as well as unit tests.
 
-<<<<<<< HEAD
 ## Jan. 18, 2023
-=======
-## Jan. 18, 2022
->>>>>>> development2
 
 Today, I worked on:
 
@@ -123,7 +97,6 @@ Today, I worked on:
 - I am excited about using Bootstrap and CSS to style
   it.
 
-<<<<<<< HEAD
 ## Jan. 17, 2023
 
 Today, I worked on:
@@ -132,32 +105,15 @@ Today, I worked on:
   styling to it. I liked how it turned out. Alex,
   Lauren, and I are working on our components
   for the products page where the products can be
-=======
-## Jan. 17, 2022
-
-Today, I worked on:
-
-- I completed my sign up page, and Alex, Lauren,
-  and I are working on our components for the
-  products page where the products can be
->>>>>>> development2
   displayed after fetching.
 - I am currently looking up ways to have my
   products show up in the list page.
 
-<<<<<<< HEAD
 ## Jan. 16, 2023
 
 - Martin Luther King Jr. Day
 
 ## Jan. 13, 2023
-=======
-## Jan. 16, 2022
-
-- Martin Luther King Jr. Day
-
-## Jan. 13, 2022
->>>>>>> development2
 
 Today, I worked on:
 
@@ -172,30 +128,18 @@ Today, I worked on:
   or I could have the user be redirected to the
   log in page after signing up.
 
-<<<<<<< HEAD
 ## Jan. 12, 2023
 
 Today, I worked on:
 
 - Hutch, Lauren, and I successfully finished our
-=======
-## Jan. 12, 2022
-
-Today, I worked on:
-
-- Alex, Lauren, and I successfully finished our
->>>>>>> development2
   portion for the inventory microservice. We have
   our API endpoints working and ready to go!
 - Now, we have to work on authentication. Carter,
   Matt, and Robbie have been helping with our
   authentication issues.
 
-<<<<<<< HEAD
 ## Jan. 11, 2023
-=======
-## Jan. 11, 2022
->>>>>>> development2
 
 Today, I worked on:
 
@@ -207,11 +151,7 @@ Today, I worked on:
   they are super helpful! I am able to make
   FastAPI endpoints through these videos.
 
-<<<<<<< HEAD
 ## Jan. 10, 2023
-=======
-## Jan. 10, 2022
->>>>>>> development2
 
 Today, I worked on:
 
@@ -222,11 +162,7 @@ Today, I worked on:
   Andrew showed us how to create a database and
   view our data.
 
-<<<<<<< HEAD
 ## Jan. 9, 2023
-=======
-## Jan. 9, 2022
->>>>>>> development2
 
 Today, I worked on:
 
