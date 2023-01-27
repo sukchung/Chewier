@@ -1,6 +1,40 @@
-## Jan. 24, 2022
+## Jan. 26, 2023
 
-## Jan. 24, 2022
+Today, I worked on:
+
+- We finished merging our deployment branch to
+  main, and now we're working on styling. I was
+  working on styling the pets list page.
+  Hopefully, I get that done this afternoon.
+- I completed the styling, and we are going to
+  merge and deploy to main again soon.
+
+## Jan. 25, 2023
+
+Today, I worked on:
+
+- We also finished our unit tests, and
+  they successfully passed. Our group and I
+  merged our branches together, and we
+  successfully deployed on our deployment
+  branch. I don't know why I named the branch
+  "development2" when it should be called our
+  "deployment" branch. I must be tired, but we're
+  almost done! And I was able to resolve the CORS
+  issue that we had when we merged all our
+  working branches into the deployment branch.
+  Andrew helped me set up the unit test jobs. The
+  issue was psycopg, which lets Python programs
+  access Postgres databases, being outdated.
+  Also, Robbie helped us with the migrations
+  issues.
+- Currently, we need to finish working on the
+  README.md and also add our API design and
+  wireframes. Then, we need to deploy onto the
+  main branch, which we will hopefully do
+  tomorrow.
+
+## Jan. 24, 2023
 
 Today, I worked on:
 
@@ -12,7 +46,7 @@ Today, I worked on:
   inventory endpoints, so I am happy about that.
   Now, I have to finish working on deployment.
 
-## Jan. 23, 2022
+## Jan. 23, 2023
 
 Today, I worked on:
 
@@ -24,11 +58,12 @@ Today, I worked on:
 - I was later able to deploy both microservices
   and see the deployed website for the first time.
 
-## Jan. 20, 2022
+## Jan. 20, 2023
 
 Today, I worked on:
 
-- Today, I finished the products page, and I
+- Today, I finished the products page. I also
+  added some UI styling to make it look good. I
   started working on deployment today. I watched
   Andrew's recording on deployment, and I also
   asked for help. James, Robbie, and Rosheen
@@ -38,7 +73,7 @@ Today, I worked on:
   that will log out the user and hide the sign up
   and log in links when logged in.
 
-## Jan. 19, 2022
+## Jan. 19, 2023
 
 Today, I worked on:
 
@@ -50,7 +85,7 @@ Today, I worked on:
 - I am going to review CI/CD to get more familiar
   with it as well as unit tests.
 
-## Jan. 18, 2022
+## Jan. 18, 2023
 
 Today, I worked on:
 
@@ -62,22 +97,23 @@ Today, I worked on:
 - I am excited about using Bootstrap and CSS to style
   it.
 
-## Jan. 17, 2022
+## Jan. 17, 2023
 
 Today, I worked on:
 
-- I completed my sign up page, and Alex, Lauren,
-  and I are working on our components for the
-  products page where the products can be
+- I completed my sign up page and added UI
+  styling to it. I liked how it turned out. Alex,
+  Lauren, and I are working on our components
+  for the products page where the products can be
   displayed after fetching.
 - I am currently looking up ways to have my
   products show up in the list page.
 
-## Jan. 16, 2022
+## Jan. 16, 2023
 
 - Martin Luther King Jr. Day
 
-## Jan. 13, 2022
+## Jan. 13, 2023
 
 Today, I worked on:
 
@@ -92,18 +128,18 @@ Today, I worked on:
   or I could have the user be redirected to the
   log in page after signing up.
 
-## Jan. 12, 2022
+## Jan. 12, 2023
 
 Today, I worked on:
 
-- Alex, Lauren, and I successfully finished our
+- Hutch, Lauren, and I successfully finished our
   portion for the inventory microservice. We have
   our API endpoints working and ready to go!
 - Now, we have to work on authentication. Carter,
   Matt, and Robbie have been helping with our
   authentication issues.
 
-## Jan. 11, 2022
+## Jan. 11, 2023
 
 Today, I worked on:
 
@@ -115,7 +151,7 @@ Today, I worked on:
   they are super helpful! I am able to make
   FastAPI endpoints through these videos.
 
-## Jan. 10, 2022
+## Jan. 10, 2023
 
 Today, I worked on:
 
@@ -126,7 +162,7 @@ Today, I worked on:
   Andrew showed us how to create a database and
   view our data.
 
-## Jan. 9, 2022
+## Jan. 9, 2023
 
 Today, I worked on:
 

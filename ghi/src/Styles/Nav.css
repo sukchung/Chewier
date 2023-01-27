@@ -2,3 +2,34 @@
   width: 20px;
   height: 20px;
 }
+
+.backgroundnav {
+  background-color: #563d7c;
+}
+
+.chewierfont {
+  font-family: 'Rubik Bubbles', cursive;
+  font-size: 40px;
+}
+
+.navsize {
+  font-size: 20px;
+  padding-left:20px;
+  font-family: 'Kaisei HarunoUmi', serif;
+}
+
+.navbarspacing {
+  font-size: 20px;
+  padding-right:20px;
+  font-family: 'Kaisei HarunoUmi', serif;
+}
+
+.logout {
+  padding: 4px, 16px;
+}
+
+.dropdown {
+  background-color: #563d7c;
+  border-color: #563d7c;
+  border: transparent;
+}

@@ -41,13 +41,7 @@ const Cart = (props) => {
   useEffect(() => {
     setCustomFoodCount(customs.length);
   }, [customs]);
-
-  // useEffect(() => {
-  //   if (cartItemsClone.length !== 0) {
-  //     customs.map((custom_food) => {setCartItemsClone([...cartItemsClone, {...custom_food, qty: 1}])})
-  //   }
-  // }, [customs])
-
+  
   const onAddCustom = (custom) => {
     const exist = cartItemsClone.find((x) => x.id === custom.id);
     if (exist) {

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthContext } from "./Auth";
+import { NavLink } from "react-router-dom";
+import "./Styles/PetList.css";
 // import { Link } from "react-router-dom";
 // import { useJwt } from "react-jwt";
 
@@ -24,32 +26,36 @@ function PetList() {
 
   return (
     <div>
-      <h1>Your Pets</h1>
-      {/* <div className="d-grid gap-2 d-sm-flex justify-content-sm-right">
-                    <Link to="/models/new/" className="btn btn-primary btn-md px-4 gap-3">Add new pet</Link>
-                </div> */}
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Breed</th>
-            <th>Size</th>
-            <th>Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pets
-            .filter((pet) => pet.account_id === token?.account.id)
-            .map((pet) => (
-              <tr key={pet.id}>
-                <td>{pet.name}</td>
-                <td>{pet.breed}</td>
-                <td>{pet.size}</td>
-                <td>{pet.age}</td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      <h1 className="center">My Pets</h1>
+      <div className="center-button">
+        <button className="button-color">
+          <NavLink to="/account" className="purple-text">My Account</NavLink>
+        </button>
+      </div>
+      <div className="smaller-container">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Breed</th>
+              <th>Size</th>
+              <th>Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pets
+              .filter((pet) => pet.account_id === token?.account.id)
+              .map((pet) => (
+                <tr key={pet.id}>
+                  <td>{pet.name}</td>
+                  <td>{pet.breed}</td>
+                  <td>{pet.size}</td>
+                  <td>{pet.age}</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
