@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useAuthContext } from "./Auth";
+import "./PetForm.css"
+
 
 function FancyBootStrappin(props) {
   const { id, placeholder, labelText, value, onChange, type } = props;
 
   return (
-    <div className="mb-3">
+    <div className="mt-5 mb-5 input">
       <label htmlFor={id} className="form-label">
         {labelText}
       </label>
@@ -28,7 +30,6 @@ function PetForm(props) {
   const [size, setSize] = useState("");
   const [age, setAge] = useState("");
   const { token } = useAuthContext();
-  // console.log(token)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -66,44 +67,53 @@ function PetForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} id="pets-form">
-      <FancyBootStrappin
-        id="petName"
-        placeholder="Plz to give name"
-        labelText="What's your crites name?  Don't leave us hanging, now."
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        type="text"
-      />
-      <FancyBootStrappin
-        id="petType"
-        placeholder="Doggo or catto?"
-        labelText="Is it a dog? Is it a cat?  Let us know!  Unless it's a catdog, and then maybe you should just head to the vet instead."
-        value={breed}
-        onChange={(e) => setBreed(e.target.value)}
-        type="text"
-      />
-      <FancyBootStrappin
-        id="petSize"
-        placeholder="It's okay, we love the chonks and won't judge."
-        labelText="Are they a big 'un you can ride like a pony?  Or can you lose them in a laundry pile?  Give us the deets."
-        value={size}
-        onChange={(e) => setSize(e.target.value)}
-        type="text"
-      />
-      <FancyBootStrappin
-        id="petAge"
-        placeholder="All pets are bebbies, but we're going to need an actual number here."
-        labelText="Are they bebby?  A moody teenager?  A super duper senior?"
-        value={age}
-        onChange={(e) => setAge(e.target.value)}
-        type="text"
-      />
+    <div className="row">
+      <div className="offset-3 col-6">
+        <div className="p-4 mt-4 smaller-container">
+          <div className="mb-3">
+            <h1 className ="petHead">Add a Pet!</h1>
+          </div>
+            <form onSubmit={handleSubmit} id="pets-form">
+              <FancyBootStrappin
+                id="petName"
+                placeholder="Tell us here"
+                labelText="What's your pets name?"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+              />
+              <FancyBootStrappin
+                id="petType"
+                placeholder="Dog or cat"
+                labelText="What kind of pet do you have?"
+                value={breed}
+                onChange={(e) => setBreed(e.target.value)}
+                type="text"
+              />
+              <FancyBootStrappin
+                id="petSize"
+                placeholder="Eg: small, medium, large, extra large"
+                labelText="How large is your pet?"
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+                type="text"
+              />
+              <FancyBootStrappin
+                id="petAge"
+                placeholder="Please enter a number here"
+                labelText="How old is your pet?"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                type="text"
+              />
 
-      <button type="submit" className="btn btn-primary">
-        Add pet
-      </button>
-    </form>
+              <button id = "add" className = "add-button">
+                Add pet
+              </button>
+            </form>
+          </div>
+        </div>
+    </div>
   );
 }
 export default PetForm;
