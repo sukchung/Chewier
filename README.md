@@ -13,6 +13,10 @@ Suk Chung
 Chewier - For when the bowl is empty and they start to guilt trip you
 A pet food e-commerce site that includes the option to create your own customized pet food formula.
 
+## TABLE OF CONTENTS
+
+[TOC]
+
 ## DESIGN
 
 [API Design](docs/api-design.md)

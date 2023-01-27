@@ -32,9 +32,6 @@ function PetList() {
           <NavLink to="/account" className="purple-text">My Account</NavLink>
         </button>
       </div>
-      {/* <div className="d-grid gap-2 d-sm-flex justify-content-sm-right">
-                    <Link to="/models/new/" className="btn btn-primary btn-md px-4 gap-3">Add new pet</Link>
-                </div> */}
       <div className="smaller-container">
         <table className="table">
           <thead>

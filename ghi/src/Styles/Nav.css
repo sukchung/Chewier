@@ -27,3 +27,9 @@
 .logout {
   padding: 4px, 16px;
 }
+
+.dropdown {
+  background-color: #563d7c;
+  border-color: #563d7c;
+  border: transparent;
+}
