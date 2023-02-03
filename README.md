@@ -12,7 +12,7 @@ Team:
 
 A pet food e-commerce site that includes the option to create your own customized pet food formula.
 
-## DESIGN
+## Design
 
 [API Design](docs/api-design.md)
 
