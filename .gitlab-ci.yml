@@ -80,6 +80,7 @@ pages:
     paths:
       - public
 
+# Build the microservices
 build-accounts-service:
   image: docker:19.03.1
   stage: build

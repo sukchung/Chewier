@@ -1,58 +1,46 @@
 volumes:
-    postgres-data:
-        external: true
-    pg-admin:
-        external: true
-    jwtdown-db-data:
-        external: true
-    # other volumes...
+  postgres-data:
+    external: true
+  pg-admin:
+    external: true
+  jwtdown-db-data:
+    external: true
 services:
   postgres:
-        build:
-            context: ./relational-data
-            dockerfile: ./Dockerfile.dev
-        volumes:
-            - postgres-data:/var/lib/postgresql/data
-        environment:
-            - POSTGRES_MULTIPLE_DATABASES=accounts,inventory
-            - POSTGRES_PASSWORD=test-databases
-        ports:
-            - 15432:5432
-  fastapi:
     build:
-      context: sample_service
-      dockerfile: Dockerfile.dev
-    ports:
-      - 8000:8000
+      context: ./relational-data
+      dockerfile: ./Dockerfile.dev
     volumes:
-      - ./sample_service:/app
-
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=accounts,inventory
+      - POSTGRES_PASSWORD=test-databases
+    ports:
+      - 15432:5432
   accounts:
     build:
-        context: ./accounts
-        dockerfile: ./Dockerfile.dev
+      context: ./accounts
+      dockerfile: ./Dockerfile.dev
     environment:
       SIGNING_KEY: chewieristhesigningkey
       DATABASE_URL: postgresql://accounts:password@postgres/accounts
       WAIT_HOSTS: postgres:5432
     ports:
-        - "8080:8000"
+      - "8080:8000"
     volumes:
-        - ./accounts:/app
-
+      - ./accounts:/app
   inventory:
     build:
-        context: ./inventory
-        dockerfile: ./Dockerfile.dev
+      context: ./inventory
+      dockerfile: ./Dockerfile.dev
     environment:
       SIGNING_KEY: chewieristhesigningkey
       DATABASE_URL: postgresql://inventory:password@postgres/inventory
       WAIT_HOSTS: postgres:5432
     ports:
-        - "8090:8000"
+      - "8090:8000"
     volumes:
-        - ./inventory:/app
-
+      - ./inventory:/app
   ghi:
     image: node:lts-bullseye
     command: /bin/bash run.sh
@@ -68,7 +56,6 @@ services:
       PUBLIC_URL: http://localhost:3000
       REACT_APP_ACCOUNTS_HOST: http://localhost:8080
       REACT_APP_INVENTORY_HOST: http://localhost:8090
-
   pg-admin:
     image: dpage/pgadmin4
     volumes:

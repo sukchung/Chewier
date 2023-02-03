@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 
-import classes from "./CartModal.module.css";
+import classes from "../Styles/CartModal.module.css";
 
 const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onClose} />;

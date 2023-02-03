@@ -1,7 +1,7 @@
-import classes from "./LoginForm.module.css";
+import classes from "../Styles/LoginForm.module.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useToken } from "./Auth";
+import { useToken } from "../Auth";
 
 const Card = (props) => {
   return (

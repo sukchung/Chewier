@@ -1,20 +1,20 @@
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "./Auth";
-import "./Styles/AccountDetail.css";
-import addpet from "./Images/addpet.jpg";
-import viewpet from "./Images/viewpet.jpg";
+import { useAuthContext } from "../Auth";
+import "../Styles/AccountDetail.css";
+import addpet from "../Images/addpet.jpg";
+import viewpet from "../Images/viewpet.jpg";
 
 function AccountDetail() {
   const { token } = useAuthContext();
   const navigate = useNavigate();
 
   const handleAdd = () => {
-    navigate('/petsform')
-  }
+    navigate("/petsform");
+  };
 
   const handleView = () => {
-    navigate('/petslist')
-  }
+    navigate("/petslist");
+  };
 
   return (
     <>

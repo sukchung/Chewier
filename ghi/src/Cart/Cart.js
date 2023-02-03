@@ -1,5 +1,5 @@
-import classes from "./Cart.module.css";
-import "./Cart.css";
+import classes from "../Styles/Cart.module.css";
+import "../Styles/Cart.css";
 import CartModal from "./CartModal";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../Auth";
@@ -41,7 +41,7 @@ const Cart = (props) => {
   useEffect(() => {
     setCustomFoodCount(customs.length);
   }, [customs]);
-  
+
   const onAddCustom = (custom) => {
     const exist = cartItemsClone.find((x) => x.id === custom.id);
     if (exist) {

@@ -2,17 +2,17 @@
 import { AuthProvider, useToken } from "./Auth";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import AccountDetail from "./AccountDetail";
+import AccountDetail from "./Accounts/AccountDetail";
 import MainPage from "./MainPage";
-import PetForm from "./PetForm";
-import PetList from "./PetList";
+import PetForm from "./Accounts/PetForm";
+import PetList from "./Accounts/PetList";
 import Nav from "./Nav";
 import SignupForm from "./Accounts/SignupForm";
 import ProductPage from "./Inventory/ProductPage";
-import LogInForm from "./LoginForm";
+import LogInForm from "./Accounts/LoginForm";
 import Cart from "./Cart/Cart";
 import "./App.css";
-import CustomizationForm from "./CustomizationForm";
+import CustomizationForm from "./Customization/CustomizationForm";
 
 function GetToken() {
   useToken();
@@ -96,8 +96,6 @@ function App(props) {
       </AuthProvider>
     </BrowserRouter>
   );
-
 }
-
 
 export default App;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuthContext } from "./Auth";
+import { useAuthContext } from "../Auth";
 
 function BootstrapInput(props) {
   const { id, placeholder, labelText, value, onChange, type } = props;

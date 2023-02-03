@@ -57,7 +57,7 @@ export default function ProductPage(props) {
 
   if (loading) {
     return (
-      <div className="center-div">
+      <div className="center-loading">
         Loading some Chewier goodies... ᶠᵉᵉᵈ ᵐᵉ /ᐠ-ⱉ-ᐟ\ﾉ
       </div>
     );
@@ -75,10 +75,10 @@ export default function ProductPage(props) {
       </div>
       <div>
         <label>Search</label>
-        <input type="text" onChange={e => setQuery(e.target.value)} />
+        <input type="text" onChange={(e) => setQuery(e.target.value)} />
       </div>
-      <div className = "btns">
-      <button value="All" onClick={handleBtns}>
+      <div className="btns">
+        <button value="All" onClick={handleBtns}>
           All
         </button>
         <button value="Dry" onClick={handleBtns}>
@@ -89,13 +89,15 @@ export default function ProductPage(props) {
         </button>
       </div>
       <Row>
-        {filteredItems.map((product) => (
-          <Col sm={12} md={3} lg={2} key={product.id}>
-            <div className="product-card">
-              <ProductCard product={product} id={product.id} onAdd={onAdd} />
-            </div>
-          </Col>
-        ))}
+        {Array.isArray(products) &&
+          products.length > 0 &&
+          products.map((product) => (
+            <Col sm={12} md={4} lg={3} key={product.id}>
+              <div className="product-card">
+                <ProductCard product={product} id={product.id} onAdd={onAdd} />
+              </div>
+            </Col>
+          ))}
       </Row>
     </div>
   );
