@@ -175,7 +175,7 @@ export default function SignupForm() {
             </button>
             <div>
               <p className="spacing">
-                Already have an account?{" "}
+                Already have a Chewier account?{" "}
                 <NavLink
                   to="/login"
                   className="active login-font purple-text purple-hover"
