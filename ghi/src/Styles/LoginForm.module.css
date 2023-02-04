@@ -1,62 +1,36 @@
-
-.login {
-  width: 90%;
-  max-width: 40rem;
-  margin: 2rem auto;
-  padding: 2rem;
+.spacing {
+  padding: 3px 0 0 0;
 }
 
-.control {
-  margin: 1rem 0;
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
+p,
+.login-font {
+  font-size: 12px;
 }
 
-.control label,
-.control input {
-  display: block;
-}
-
-.control label {
+.purple-text {
+  color: #5e518c;
+  text-decoration: none;
   font-weight: bold;
-  flex: 1;
-  color: #464646;
-  margin-bottom: 0.5rem;
+  position: relative;
 }
 
-.control input {
-  flex: 3;
-  font: inherit;
-  padding: 0.35rem 0.35rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.purple-text:hover {
+  color: #5e518c;
 }
 
-.control input:focus {
-  outline: none;
-  border-color: #4f005f;
-  background: #f6dbfc;
+.purple-hover::before {
+  content: "";
+  background-color: #9a9dd953;
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 100%;
+  height: 8px;
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
 }
 
-.control.invalid input {
-  border-color: red;
-  background: #fbdada;
-}
-
-.actions {
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .control {
-    align-items: center;
-    flex-direction: row;
-  }
-
-}
-.card {
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  border-radius: 10px;
+.purple-hover:hover::before {
+  bottom: 0;
+  height: 100%;
 }

@@ -19,37 +19,37 @@ function AccountDetail() {
   return (
     <>
       <h1>Account Details</h1>
-      <div class="container">
-        <div class="info">
+      <div className="container">
+        <div className="info">
           <h2>Name</h2>
-          <p class="text">
+          <p className="text">
             {token?.account.first_name} {token?.account.last_name}
           </p>
           <h2>Email</h2>
-          <p class="text">{token?.account.email}</p>
+          <p className="text">{token?.account.email}</p>
           <h2>Address</h2>
-          <p class="text bottom-text">{token?.account.address}</p>
+          <p className="text bottom-text">{token?.account.address}</p>
         </div>
-        <div class="buttons">
-          <div class="add">
-            <div class="pic-container">
+        <div className="buttons">
+          <div className="add">
+            <div className="pic-container">
               <img src={addpet} alt="" />
             </div>
             <button
               type="button"
-              class="btn btn-primary btn-lg"
+              className="btn btn-primary btn-lg"
               onClick={handleAdd}
             >
               Add A Pet
             </button>
           </div>
-          <div class="view">
-            <div class="pic-container">
+          <div className="view">
+            <div className="pic-container">
               <img src={viewpet} alt="" />
             </div>
             <button
               type="button"
-              class="btn btn-primary btn-lg"
+              className="btn btn-primary btn-lg"
               onClick={handleView}
             >
               View Your Pets

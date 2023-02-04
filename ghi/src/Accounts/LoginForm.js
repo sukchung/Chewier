@@ -1,7 +1,11 @@
-import classes from "../Styles/LoginForm.module.css";
+// Dependencies
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useToken } from "../Auth";
+
+// CSS
+import classes from "../Styles/LoginForm.module.css";
+import petheart from "../Images/petheart.png";
 
 const Card = (props) => {
   return (
@@ -11,19 +15,14 @@ const Card = (props) => {
 
 const LogInForm = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
-  const [emailIsValid, setEmailIsValid] = useState();
+  const [, setEmailIsValid] = useState();
   const [enteredPassword, setEnteredPassword] = useState("");
-  const [passwordIsValid, setPasswordIsValid] = useState();
-  const [formIsvalid, setFormIsValid] = useState(false);
-  const [,login] = useToken();
+  const [, setPasswordIsValid] = useState();
+  const [, setFormIsValid] = useState(false);
+  const [, login] = useToken();
 
-
-  //   const registerHandler = (event) => {
-  //     event.preventDefault();
-  //     console.log("Clicked!");
-  //     navigate("/signup");
-  //   }
   const navigate = useNavigate();
+
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
@@ -41,6 +40,7 @@ const LogInForm = (props) => {
       event.target.value.includes("@") && enteredPassword.trim().length >= 6
     );
   };
+
   const passwordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
 
@@ -52,58 +52,65 @@ const LogInForm = (props) => {
   const validateEmailHandler = () => {
     setEmailIsValid(enteredEmail.includes("@"));
   };
+
   const validatePasswordHandler = () => {
     setPasswordIsValid(enteredPassword.trim().length >= 6);
   };
 
   return (
-    <Card className={classes.login}>
-      <form onSubmit={submitHandler}>
-        <h3 className="display-5">Sign In</h3>
-        <div
-          className={`${classes.control} ${
-            emailIsValid === false ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="email">E-Mail</label>
-          <input
-            type="email"
-            id="email"
-            value={enteredEmail}
-            onChange={emailChangeHandler}
-            onBlur={validateEmailHandler}
-          />
+    <div className="row">
+      <div className="offset-3 col-6">
+        <div className="p-4 mt-4 smaller-container">
+          <div className="container1">
+            <h2 className="heading">Log in</h2>
+            <img src={petheart} className="icon" alt="icon" />
+          </div>
+          <form onSubmit={submitHandler} id="create-signup-form">
+            <div className="form-floating mb-3 input-sm">
+              <input
+                onChange={emailChangeHandler}
+                onBlur={validateEmailHandler}
+                placeholder="Email"
+                type="email"
+                name="email"
+                id="enteredEmail"
+                value={enteredEmail}
+                className="form-control"
+                required
+              />
+              <label htmlFor="email">Email</label>
+            </div>
+            <div className="form-floating mb-3 input-sm">
+              <input
+                onChange={passwordChangeHandler}
+                placeholder="Password"
+                type="password"
+                name="password"
+                id="enteredPassword"
+                value={enteredPassword}
+                className="form-control"
+                required
+              />
+              <label htmlFor="password">Password</label>
+            </div>
+            <button id="button-purple" className="btn button-purple">
+              Log in
+            </button>
+            <div>
+              <p className="spacing">
+                Not a Chewier member?{" "}
+                <NavLink
+                  to="/signup"
+                  className="active login-font purple-text purple-hover"
+                >
+                  Sign up
+                </NavLink>
+              </p>
+            </div>
+          </form>
         </div>
-        <div
-          className={`${classes.control} ${
-            passwordIsValid === false ? classes.invalid : ""
-          }`}
-        >
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={enteredPassword}
-            onChange={passwordChangeHandler}
-            onBlur={validatePasswordHandler}
-          />
-        </div>
-        <div className="d-grid">
-          <button
-            type="submit"
-            className="btn btn-primary btn-lg"
-            disabled={!formIsvalid}
-          >
-            Login!
-          </button>
-        </div>
-        <div className="text-center">
-          <p>
-            Not a Chewier member? <a href="#!">Sign up!</a>
-          </p>
-        </div>
-      </form>
-    </Card>
+      </div>
+    </div>
   );
 };
 

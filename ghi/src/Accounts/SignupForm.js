@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 // CSS
 import "../Styles/SignupForm.css";
-import pawprint1 from "../Images/pawprint1.png";
+import petheart from "../Images/petheart.png";
 
 export default function SignupForm() {
   const [signUp, setSignUp] = useState({
@@ -89,7 +89,7 @@ export default function SignupForm() {
         <div className="p-4 mt-4 smaller-container">
           <div className="container1">
             <h2 className="heading">Sign up</h2>
-            <img src={pawprint1} className="icon" alt="icon" />
+            <img src={petheart} className="icon" alt="icon" />
           </div>
           <form onSubmit={handleSubmit} id="create-signup-form">
             <div className="form-floating mb-3 input-sm">

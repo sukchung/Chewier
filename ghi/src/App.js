@@ -3,16 +3,19 @@ import { AuthProvider, useToken } from "./Auth";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import AccountDetail from "./Accounts/AccountDetail";
+import Nav from "./Nav";
 import MainPage from "./MainPage";
+import SignupForm from "./Accounts/SignupForm";
+import LogInForm from "./Accounts/LoginForm";
 import PetForm from "./Accounts/PetForm";
 import PetList from "./Accounts/PetList";
-import Nav from "./Nav";
-import SignupForm from "./Accounts/SignupForm";
 import ProductPage from "./Inventory/ProductPage";
-import LogInForm from "./Accounts/LoginForm";
 import Cart from "./Cart/Cart";
-import "./App.css";
 import CustomizationForm from "./Customization/CustomizationForm";
+import Footer from "./Footer";
+
+// CSS
+import "./App.css";
 
 function GetToken() {
   useToken();
@@ -24,12 +27,12 @@ const basename = process.env.PUBLIC_URL.replace(domain, "");
 
 function App(props) {
   const [cartItems, setCartItems] = useState([]);
-
   const [cartIsShown, setCartIsSHown] = useState(false);
 
   const showCartHandler = () => {
     setCartIsSHown(true);
   };
+
   const hideCartHandler = () => {
     setCartIsSHown(false);
   };
@@ -46,6 +49,7 @@ function App(props) {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
+
   const onRemove = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist.qty === 1) {
@@ -93,6 +97,7 @@ function App(props) {
           />
           <Route path="custom" element={<CustomizationForm />} />
         </Routes>
+        <Footer />
       </AuthProvider>
     </BrowserRouter>
   );
