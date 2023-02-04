@@ -1,10 +1,7 @@
 // Dependencies
 import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
-
-// Components
 import ProductCard from "./ProductCard";
-
 
 //CSS
 import "../Styles/ProductPage.css";
@@ -14,18 +11,20 @@ const getFilteredItems = (query, items) => {
   if (!query) {
     return items;
   }
-  return items.filter((product) => product.name.includes(query))
-}
 
+  return items.filter((product) =>
+    product.name.toLowerCase().includes(query.toLowerCase())
+  );
+};
 
 export default function ProductPage(props) {
   const [products, setProducts] = useState([]);
-  const [query, setQuery] = useState('');
-  const filteredItems = getFilteredItems(query, products)
+  const [query, setQuery] = useState("");
   const [copyProducts, setCopyProducts] = useState([]);
-  const { onAdd } = props;
-
   const [loading, setLoading] = useState(true);
+
+  const { onAdd } = props;
+  const filteredItems = getFilteredItems(query, products);
 
   useEffect(() => {
     async function getProducts() {
@@ -42,26 +41,18 @@ export default function ProductPage(props) {
     getProducts();
   }, [setProducts]);
 
-  const handleBtns = (e) =>{
-  let word = e.target.value;
-  if (word === "All") {
-     setProducts(copyProducts)
-  } else if (word === "Dry") {
-     const filtered = products.filter(item => item.state === "Dry")
-     setProducts(filtered)
-  } else if (word === "Wet") {
-     const filtered = products.filter(item => item.state === "Wet")
-     setProducts(filtered)
-  }
- }
-
-  if (loading) {
-    return (
-      <div className="center-loading">
-        Loading some Chewier goodies... ᶠᵉᵉᵈ ᵐᵉ /ᐠ-ⱉ-ᐟ\ﾉ
-      </div>
-    );
-  }
+  const handleBtns = (e) => {
+    let word = e.target.value;
+    if (word === "All") {
+      setProducts(copyProducts);
+    } else if (word === "Dry") {
+      const filtered = products.filter((item) => item.state === "Dry");
+      setProducts(filtered);
+    } else if (word === "Wet") {
+      const filtered = products.filter((item) => item.state === "Wet");
+      setProducts(filtered);
+    }
+  };
 
   return (
     <div className="products-page">
@@ -88,17 +79,15 @@ export default function ProductPage(props) {
           Wet
         </button>
       </div>
-      <Row>
-        {Array.isArray(products) &&
-          products.length > 0 &&
-          products.map((product) => (
+      <div className="container">
+        <div className="row">
+          {filteredItems.map((product) => (
             <Col sm={12} md={4} lg={3} key={product.id}>
-              <div className="product-card">
-                <ProductCard product={product} id={product.id} onAdd={onAdd} />
-              </div>
+              <ProductCard product={product} id={product.id} onAdd={onAdd} />
             </Col>
           ))}
-      </Row>
+        </div>
+      </div>
     </div>
   );
 }
