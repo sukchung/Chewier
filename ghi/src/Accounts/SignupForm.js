@@ -1,6 +1,7 @@
 // Dependencies
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useToken } from "../Auth";
 
 // CSS
 import "../Styles/SignupForm.css";
@@ -15,6 +16,7 @@ export default function SignupForm() {
     password: "",
     passwordConfirmation: "",
   });
+  const [, login] = useToken();
 
   const navigate = useNavigate();
 
@@ -75,7 +77,8 @@ export default function SignupForm() {
           password: "",
           passwordConfirmation: "",
         });
-        navigate("/login");
+        await login(signUp.email, signUp.password);
+        navigate("/");
       } else if (!response.ok) {
         const message = `${response.status}: ${response.statusText}`;
         throw new Error(message);

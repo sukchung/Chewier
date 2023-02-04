@@ -27,7 +27,6 @@ const LogInForm = (props) => {
     event.preventDefault();
     try {
       await login(enteredEmail, enteredPassword);
-      navigate("/");
     } catch (error) {
       console.error(error);
     }
