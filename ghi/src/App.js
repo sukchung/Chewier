@@ -2,11 +2,11 @@
 import { AuthProvider, useToken } from "./Auth";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import AccountDetail from "./Accounts/AccountDetail";
 import Nav from "./Nav";
 import MainPage from "./MainPage";
 import SignupForm from "./Accounts/SignupForm";
 import LogInForm from "./Accounts/LoginForm";
+import AccountDetail from "./Accounts/AccountDetail";
 import PetForm from "./Accounts/PetForm";
 import PetList from "./Accounts/PetList";
 import ProductPage from "./Inventory/ProductPage";

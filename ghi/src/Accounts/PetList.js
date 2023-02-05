@@ -11,7 +11,6 @@ import cattree from "../Images/cattree.jpeg";
 function PetList() {
   const [pets, setPets] = useState([]);
   const { token } = useAuthContext();
-  //   const { decodedToken, isExpired } = useJwt(token);
 
   useEffect(() => {
     async function getPets() {

@@ -30,7 +30,7 @@ function AccountDetail() {
               <img
                 className="lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100"
                 src={doghugging}
-                alt="blog"
+                alt="hugging dog"
               />
               <div className="p-6">
                 <h1 className="title-font text-lg font-medium text-gray-600 mb-3">

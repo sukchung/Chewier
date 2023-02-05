@@ -1,5 +1,8 @@
+// Dependencies
 import { useState } from "react";
 import { useAuthContext } from "../Auth";
+
+// CSS
 import "../Styles/PetForm.css";
 
 function FancyBootStrappin(props) {

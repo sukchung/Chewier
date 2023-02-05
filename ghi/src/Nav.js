@@ -70,7 +70,6 @@ export default function Nav(props) {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
-
           <Popover.Group as="nav" className="hidden space-x-10 md:flex">
             {loggedIn && (
               <Popover className="relative">
@@ -91,7 +90,6 @@ export default function Nav(props) {
                         aria-hidden="true"
                       />
                     </Popover.Button>
-
                     <Transition
                       as={Fragment}
                       enter="transition ease-out duration-200"
@@ -145,15 +143,16 @@ export default function Nav(props) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                paddingTop: "25px",
+                paddingRight: "10px",
               }}
             >
               <NavCartButton
                 onClick={props.onShowCart}
-                countCartItems={countCartItems}
+                // countCartItems={countCartItems}
                 to="/cart"
               />
             </div>
-
             {!loggedIn && (
               <>
                 <NavLink
@@ -234,7 +233,6 @@ export default function Nav(props) {
                 >
                   Products
                 </NavLink>
-
                 <NavLink
                   to="/custom"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
