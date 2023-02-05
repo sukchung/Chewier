@@ -59,8 +59,6 @@ function CustomizationForm(props) {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const newCustom = await response.json();
-      console.log(newCustom);
-
       clearState();
     }
   };

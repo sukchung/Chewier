@@ -174,7 +174,7 @@ export default function Nav(props) {
               <div style={{ width: "100px" }}>
                 <button
                   onClick={handleLogout}
-                  className="whitespace-nowrap text-base font-medium rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                  className="whitespace-nowrap text-base font-medium rounded-md border border-transparent bg-violet-500 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                 >
                   Logout
                 </button>

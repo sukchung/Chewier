@@ -72,7 +72,6 @@ const Cart = (props) => {
     }
   };
 
-  console.log("CARTITEMS", props);
   return (
     <CartModal onClose={props.onClose}>
       <h2>Cart Items</h2>
@@ -125,14 +124,6 @@ const Cart = (props) => {
             </div>
             <div>
               <div>Items Price</div>
-              {/* {console.log(customs)}
-              {console.log(
-                customs.filter(
-                  (custom) => custom.account_id === token?.account.id
-                ) !== []
-                  ? 100
-                  : 0
-              )} */}
               <div>
                 $
                 {((customs.length !== 0 ? parseFloat(customFoodCount * 70.99) : 0) +

@@ -52,8 +52,6 @@ function PetForm(props) {
     const response = await fetch(url, fetchConfig);
     if (response.ok) {
       const newPet = await response.json();
-      console.log(newPet);
-
       clearState();
     }
   };
@@ -69,8 +67,8 @@ function PetForm(props) {
     <div className="row">
       <div className="offset-3 col-6">
         <div className="p-4 mt-4 smaller-container">
-          <div className="mb-3">
-            <h1 className="petHead">Add a Pet!</h1>
+          <div className="container1">
+            <h2 className="heading pt-4">Add a Pet</h2>
           </div>
           <form onSubmit={handleSubmit} id="pets-form">
             <FancyBootStrappin
@@ -105,8 +103,7 @@ function PetForm(props) {
               onChange={(e) => setAge(e.target.value)}
               type="text"
             />
-
-            <button id="add" className="add-button">
+            <button id="add" className="btn bg-violet-500 text-slate-100">
               Add pet
             </button>
           </form>
