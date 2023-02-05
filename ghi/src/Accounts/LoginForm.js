@@ -92,7 +92,10 @@ const LogInForm = (props) => {
               />
               <label htmlFor="password">Password</label>
             </div>
-            <button id="button-purple" className="btn button-purple">
+            <button
+              id="button-purple"
+              className="btn bg-violet-500 text-slate-100"
+            >
               Log in
             </button>
             <div>

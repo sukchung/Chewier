@@ -173,7 +173,10 @@ export default function SignupForm() {
               />
               <label htmlFor="address">Address</label>
             </div>
-            <button id="button-purple" className="btn button-purple">
+            <button
+              id="button-purple"
+              className="btn bg-violet-500 text-slate-100"
+            >
               Sign up
             </button>
             <div>

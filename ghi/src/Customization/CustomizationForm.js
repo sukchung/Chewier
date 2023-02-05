@@ -81,13 +81,13 @@ function CustomizationForm(props) {
       <div className="offset-3 col-6">
         <div className="p-4 mt-4 smaller-container">
           <div className="mb-3">
-            <h2>Hello {token?.account.first_name}!</h2>
+            <h2 className="text-center">Hello {token?.account.first_name}</h2>
           </div>
           <form onSubmit={handleSubmit} id="customs-form">
             <BootstrapInput
               id="setGoals"
               placeholder="I want my pet to..."
-              labelText="What are your goals for your pet"
+              labelText="What are your goals for your pet?"
               value={goal}
               onChange={(e) => setGoals(e.target.value)}
               type="text"
@@ -148,7 +148,7 @@ function CustomizationForm(props) {
               onChange={(e) => setName(e.target.value)}
               type="text"
             />
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn bg-violet-500 text-slate-100">
               Create Custom Formula
             </button>
           </form>
