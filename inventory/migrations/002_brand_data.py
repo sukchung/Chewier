@@ -9,7 +9,8 @@ steps = [
         ('Purina', 'Dog'),
         ('American Journey', 'Dog'),
         ('Friskies', 'Cat'),
-        ('Cat Chow', 'Cat');
+        ('Cat Chow', 'Cat'),
+        ('Hill Science Diet', 'Cat');
         """,
         """
         DROP TABLE food_brands;

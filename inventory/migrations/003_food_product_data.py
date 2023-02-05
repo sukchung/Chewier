@@ -26,6 +26,12 @@ steps = [
         2,
         'Dry',
         'https://image.chewy.com/is/image/catalog/46902_MAIN._AC_SS232_V1636147889_.jpg'),
+        ('Life Protection Chicken & Brown Rice',
+        60,
+        'Chicken',
+        2,
+        'Dry',
+        'https://image.chewy.com/is/image/catalog/46861_MAIN._AC_SS348_V1636150598_.jpg'),
         ('Wilderness Duck',
         75,
         'Duck',
@@ -67,7 +73,13 @@ steps = [
         'Beef',
         6,
         'Dry',
-        'https://image.chewy.com/is/image/catalog/173768_MAIN._AC_SS232_V1669908466_.jpg');
+        'https://image.chewy.com/is/image/catalog/173768_MAIN._AC_SS232_V1669908466_.jpg'),
+        ('Roasted Chicken & Rice Medley',
+        44,
+        'Chicken',
+        7,
+        'Wet',
+        'https://image.chewy.com/is/image/catalog/94014_Main._AC_SS348_V1585693880_.jpg');
         """,
         """
         DROP TABLE food_products
