@@ -1,4 +1,5 @@
 import CartIcon from "./CartIcon";
+
 import classes from "../Styles/NavCartButton.module.css";
 
 const NavCartButton = (props) => {

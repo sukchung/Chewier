@@ -1,8 +1,9 @@
+import React, { useEffect, useState } from "react";
+import { useAuthContext } from "../Auth";
+import CartModal from "./CartModal";
+
 import classes from "../Styles/Cart.module.css";
 import "../Styles/Cart.css";
-import CartModal from "./CartModal";
-import { useEffect, useState } from "react";
-import { useAuthContext } from "../Auth";
 
 const Cart = (props) => {
   const { cartItems, onAdd, onRemove } = props;
@@ -74,11 +75,13 @@ const Cart = (props) => {
 
   return (
     <CartModal onClose={props.onClose}>
-      <h2>Cart Items</h2>
+      <h2 style={{ fontSize: "34px" }} className="text-center pb-3">
+        Cart Items
+      </h2>
       <div>
         {cartItemsClone.length === 0 && <div>Cart Is Empty</div>}
         {cartItemsClone.map((item) => (
-          <div key={item.id} className="row">
+          <div key={item.id} className="row pb-2">
             <div className="col-2">{item.name}</div>
             <div className="col-2">
               {item.goal ? (
@@ -108,6 +111,7 @@ const Cart = (props) => {
         {cartItemsClone.length !== 0 && (
           <>
             <hr></hr>
+            <br></br>
             <div className={classes.actions}>
               <button
                 className={classes["button--alt"]}
@@ -126,16 +130,22 @@ const Cart = (props) => {
               <div>Items Price</div>
               <div>
                 $
-                {((customs.length !== 0 ? parseFloat(customFoodCount * 70.99) : 0) +
-                  parseFloat(itemsPrice)).toFixed(2)}
+                {(
+                  (customs.length !== 0
+                    ? parseFloat(customFoodCount * 70.99)
+                    : 0) + parseFloat(itemsPrice)
+                ).toFixed(2)}
               </div>
             </div>
             <div>
               <div>Taxes</div>
               <div>
                 $
-                {((customs.length !== 0 ? parseFloat(customFoodCount * 70.99 * 0.0725) : 0) +
-                  parseFloat(taxPrice)).toFixed(2)}
+                {(
+                  (customs.length !== 0
+                    ? parseFloat(customFoodCount * 70.99 * 0.0725)
+                    : 0) + parseFloat(taxPrice)
+                ).toFixed(2)}
               </div>
             </div>
             <div>
@@ -147,8 +157,11 @@ const Cart = (props) => {
               <div>
                 <strong>
                   $
-                  {((customs.length !== 0 ? parseFloat(customFoodCount * 70.99 * 1.0725) : 0) +
-                    parseFloat(totalPrice)).toFixed(2)}
+                  {(
+                    (customs.length !== 0
+                      ? parseFloat(customFoodCount * 70.99 * 1.0725)
+                      : 0) + parseFloat(totalPrice)
+                  ).toFixed(2)}
                 </strong>
               </div>
             </div>

@@ -1,18 +1,16 @@
 .add-button {
-    background: #7698FF;
-    margin: auto;
-
+  background: #7698ff;
+  margin: auto;
 }
 
 .petHead {
-    color: #721AFF;
-
+  color: #721aff;
 }
 
 .form-label {
-    color: #4033C3;
+  color: #4033c3;
 }
 
 .input {
-    align-items: center;
+  align-items: center;
 }
