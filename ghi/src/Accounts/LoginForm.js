@@ -1,9 +1,7 @@
-// Dependencies
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useToken } from "../Auth";
 
-// CSS
 import classes from "../Styles/LoginForm.module.css";
 import petheart from "../Images/petheart.png";
 

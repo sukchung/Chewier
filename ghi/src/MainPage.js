@@ -1,10 +1,8 @@
-// Dependencies
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 import Animal from "./Animal/Animal.js";
 
-// CSS
-import { motion } from "framer-motion";
 import "./Styles/MainPage.css";
 import cat1 from "./Images/cat1.png";
 import cat2 from "./Images/cat2.png";

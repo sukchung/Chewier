@@ -1,8 +1,6 @@
-// Dependencies
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../Auth";
 
-// CSS
 import "../Styles/AccountDetail.css";
 import doghugging from "../Images/doghugging.jpeg";
 

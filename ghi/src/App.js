@@ -1,4 +1,3 @@
-// Dependencies
 import { AuthProvider, useToken } from "./Auth";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -13,7 +12,6 @@ import ProductPage from "./Inventory/ProductPage";
 import Cart from "./Cart/Cart";
 import CustomizationForm from "./Customization/CustomizationForm";
 
-// CSS
 import "./App.css";
 
 function GetToken() {

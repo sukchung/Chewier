@@ -1,10 +1,8 @@
-// Dependencies
 import { useState, useEffect } from "react";
 import { useToken } from "./Auth";
 import { NavLink, useNavigate } from "react-router-dom";
 import NavCartButton from "./Cart/NavCartButton";
 
-// CSS
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";

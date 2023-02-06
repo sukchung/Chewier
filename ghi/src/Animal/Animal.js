@@ -1,9 +1,7 @@
-// Dependencies
 import React from "react";
-
-// CSS
-import "../Styles/Animal.css";
 import { motion } from "framer-motion";
+
+import "../Styles/Animal.css";
 
 function Animal({ className, imgurl }) {
   return (

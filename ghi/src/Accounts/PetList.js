@@ -1,9 +1,7 @@
-// Dependencies
 import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../Auth";
 import { NavLink } from "react-router-dom";
 
-// CSS
 import "../Styles/PetList.css";
 import dogstare from "../Images/dogstare.jpeg";
 import cattree from "../Images/cattree.jpeg";

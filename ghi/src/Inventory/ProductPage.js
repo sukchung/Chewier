@@ -1,9 +1,7 @@
-// Dependencies
 import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import ProductCard from "./ProductCard";
 
-//CSS
 import "../Styles/ProductPage.css";
 import petbanner from "../Images/petbanner.jpg";
 

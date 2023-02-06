@@ -1,8 +1,6 @@
-// Dependencies
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 
-// CSS
 import "../Styles/ProductCard.css";
 import addtocart from "../Images/addtocart.png";
 
