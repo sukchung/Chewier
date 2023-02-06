@@ -9,7 +9,7 @@ steps = [
         """,
         """
         DROP TABLE food_brands
-        """
+        """,
     ],
     [
         """
@@ -25,6 +25,6 @@ steps = [
         """,
         """
         DROP TABLE food_products
-        """
-    ]
+        """,
+    ],
 ]

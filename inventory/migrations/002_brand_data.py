@@ -14,6 +14,6 @@ steps = [
         """,
         """
         DROP TABLE food_brands;
-        """
+        """,
     ]
 ]

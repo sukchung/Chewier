@@ -6,14 +6,14 @@ from queries.inventory import FoodProductOut, FoodProductRepository
 client = TestClient(app)
 
 food_product_out = FoodProductOut(
-            id=1,
-            name="Billy",
-            price=45.00,
-            main_ingredient="chicken",
-            brand_id=1,
-            state="soft",
-            picture_url="test_url.com"
-        )
+    id=1,
+    name="Billy",
+    price=45.00,
+    main_ingredient="chicken",
+    brand_id=1,
+    state="soft",
+    picture_url="test_url.com",
+)
 
 
 class TestFoodProductRepository:

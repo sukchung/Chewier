@@ -3,11 +3,7 @@ from main import app
 from queries.inventory import FoodBrandOut, FoodBrandRepository
 
 
-food_brand_out = FoodBrandOut(
-            id=17,
-            name="test",
-            animal_type="cat"
-    )
+food_brand_out = FoodBrandOut(id=17, name="test", animal_type="cat")
 
 client = TestClient(app)
 
