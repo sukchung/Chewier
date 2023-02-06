@@ -12,7 +12,6 @@ import PetList from "./Accounts/PetList";
 import ProductPage from "./Inventory/ProductPage";
 import Cart from "./Cart/Cart";
 import CustomizationForm from "./Customization/CustomizationForm";
-import Footer from "./Footer";
 
 // CSS
 import "./App.css";
@@ -97,7 +96,6 @@ function App(props) {
           />
           <Route path="custom" element={<CustomizationForm />} />
         </Routes>
-        <Footer />
       </AuthProvider>
     </BrowserRouter>
   );
