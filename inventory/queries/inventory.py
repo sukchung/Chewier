@@ -2,10 +2,6 @@ from pydantic import BaseModel
 from queries.pool import pool
 from typing import List, Union, Optional
 
-# should brands and products be separate folders?
-
-# food brand shiz
-
 
 class Error(BaseModel):
     message: str
@@ -234,7 +230,6 @@ class FoodProductRepository:
     def update_food_product(
         self, food_product_id: int, food_product: FoodProductIn
     ) -> Union[FoodProductOut, Error]:
-        # try:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 db.execute(
@@ -261,9 +256,6 @@ class FoodProductRepository:
                 return self.food_product_in_to_out(
                     food_product_id, food_product
                 )
-
-    # except Exception as e:
-    # return {"message": "Could not update that product; please try again."}
 
     def delete(self, food_product_id: int) -> bool:
         try:

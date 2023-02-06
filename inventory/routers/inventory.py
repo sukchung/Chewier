@@ -62,7 +62,6 @@ def get_one_food_brand(
     return food_brand
 
 
-# PRODUCTS
 @router.post("/products", response_model=Union[FoodProductOut, Error])
 def create_food_product(
     food_product: FoodProductIn,
