@@ -1,4 +1,6 @@
-.landingpage {
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.mainpage {
   margin: 0;
   display: flex;
   flex-direction: row;
@@ -19,16 +21,21 @@
   margin: auto;
 }
 
-.maintext_name {
+.maintext {
   color: #000;
-  margin: 10rem 5rem auto auto;
+  margin: 15rem 15rem auto auto;
   padding: 0;
   width: auto;
 }
 
 .uptext h5 {
   margin: 0;
-  text-align: left;
-  font-size: 67px;
+  text-align: center;
+  font-size: 80px;
   font-weight: 500;
+  font-family: "Pacifico", "Unbounded";
+}
+
+.lowtext h6 {
+  text-align: center;
 }

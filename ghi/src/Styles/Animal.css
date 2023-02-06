@@ -7,25 +7,25 @@
 }
 
 .right {
-    width: 17rem;
-    margin-top: 18rem;
-    margin-right: 0rem;
+    width: 13rem;
+    margin-top: 13rem;
+    margin-right: 5rem;
     z-index: 10;
 }
 
 .left {
-    margin-left: 5rem;
-    margin-top: 20rem;
+    margin-left: 10rem;
+    margin-top: 15rem;
 }
 
 .top {
-    margin-top: 10rem;
+    margin-top: 5rem;
     margin-left: 0rem;
 }
 
 .bottom {
     width: 10rem;
-    margin-top: 27rem;
+    margin-top: 22rem;
 }
 
 .left, .top {

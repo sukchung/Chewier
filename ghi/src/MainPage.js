@@ -1,5 +1,6 @@
 // Dependencies
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Animal from "./Animal/Animal.js";
 
 // CSS
@@ -26,11 +27,11 @@ function MainPage() {
         ease: "easeInOut",
       },
     },
-  }
+  };
 
   return (
     <>
-      <div className="landingpage section_padding" id="home">
+      <div className="mainpage section_padding" id="home">
         <motion.div
           variants={fadeInUp}
           initial="initial"
@@ -46,18 +47,28 @@ function MainPage() {
           variants={fadeInUp}
           initial="initial"
           animate="animate"
-          className="maintext_name"
+          className="maintext"
         >
-          <div className="uptext">
-            <h5>
-              Chewier <span>Eats</span>
-            </h5>
+          <div className="uptext text-white">
+            <h5>Chewier</h5>
           </div>
-          <div className="middletext">
-            <h2>Chewier Section</h2>
+          <div className="lowtext pb-3 text-white">
+            <h6>Your favorite online pet store that has</h6>
+            <h6>all your shopping needs</h6>
           </div>
-          <div className="lowtext">
-            <h6>Your favorite pet store online</h6>
+          <div className="container1 flex space-x-5 items-center flex-wrap">
+            <button
+              className="bg-violet-500 text-slate-100 px-4 py-1 rounded-lg"
+              type="button"
+            >
+              <NavLink to="/products">Shop Now</NavLink>
+            </button>
+            <button
+              className="bg-violet-500 text-slate-100 px-4 py-1 rounded-lg"
+              type="button"
+            >
+              <NavLink to="/custom">Customize</NavLink>
+            </button>
           </div>
         </motion.div>
       </div>
