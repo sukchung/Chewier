@@ -89,7 +89,9 @@ export default function SignupForm() {
       <div className="offset-3 col-6">
         <div className="p-4 mt-4 smaller-container">
           <div className="container1">
-            <h2 className="heading">Sign up</h2>
+            <h2 style={{ fontSize: "34px" }} className="heading">
+              Sign up
+            </h2>
             <img src={petheart} className="icon" alt="icon" />
           </div>
           <form onSubmit={handleSubmit} id="create-signup-form">

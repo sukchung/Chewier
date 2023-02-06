@@ -19,7 +19,9 @@ function AccountDetail() {
   return (
     <>
       <div className="container1">
-        <h2 className="heading pt-4">My Account</h2>
+        <h2 style={{ fontSize: "34px" }} className="heading pt-4">
+          My Account
+        </h2>
       </div>
       <section className="text-gray-600 body-font">
         <div className="container1 pt-0 px-5 py-24 mx-auto">

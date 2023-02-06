@@ -25,7 +25,9 @@ function PetList() {
   return (
     <>
       <div className="container1">
-        <h2 className="heading pt-4">My Pets</h2>
+        <h2 style={{ fontSize: "34px" }} className="heading pt-4">
+          My Pets
+        </h2>
       </div>
       <div className="flex justify-center space-x-4">
         <button

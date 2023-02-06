@@ -69,7 +69,9 @@ function PetForm(props) {
       <div className="offset-3 col-6">
         <div className="p-4 mt-4 smaller-container">
           <div className="container1">
-            <h2 className="heading pt-4">Add a Pet</h2>
+            <h2 style={{ fontSize: "34px" }} className="heading pt-4">
+              Add a Pet
+            </h2>
           </div>
           <form onSubmit={handleSubmit} id="pets-form">
             <FancyBootStrappin

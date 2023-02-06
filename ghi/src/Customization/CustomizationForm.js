@@ -79,7 +79,9 @@ function CustomizationForm(props) {
       <div className="offset-3 col-6">
         <div className="p-4 mt-4 smaller-container">
           <div className="mb-3">
-            <h2 className="text-center">Hello {token?.account.first_name}</h2>
+            <h1 style={{ fontSize: "34px" }} className="text-center">
+              Hello {token?.account.first_name}
+            </h1>
           </div>
           <form onSubmit={handleSubmit} id="customs-form">
             <BootstrapInput
