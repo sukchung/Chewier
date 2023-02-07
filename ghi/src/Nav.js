@@ -28,7 +28,6 @@ function classNames(...classes) {
 export default function Nav(props) {
   const [loggedIn, setLoggedIn] = useState(false);
   const [token, , logout] = useToken();
-  const { countCartItems } = props;
 
   const navigate = useNavigate();
 

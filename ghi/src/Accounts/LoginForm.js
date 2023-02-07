@@ -1,25 +1,16 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useToken } from "../Auth";
 
-import classes from "../Styles/LoginForm.module.css";
+import "../Styles/LoginForm.module.css";
 import pawprint1 from "../Images/pawprint1.png";
-
-const Card = (props) => {
-  return (
-    <div className={`${classes.card} ${props.className}`}>{props.children}</div>
-  );
-};
 
 const LogInForm = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [, setEmailIsValid] = useState();
   const [enteredPassword, setEnteredPassword] = useState("");
-  const [, setPasswordIsValid] = useState();
   const [, setFormIsValid] = useState(false);
   const [, login] = useToken();
-
-  const navigate = useNavigate();
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -48,10 +39,6 @@ const LogInForm = (props) => {
 
   const validateEmailHandler = () => {
     setEmailIsValid(enteredEmail.includes("@"));
-  };
-
-  const validatePasswordHandler = () => {
-    setPasswordIsValid(enteredPassword.trim().length >= 6);
   };
 
   return (
