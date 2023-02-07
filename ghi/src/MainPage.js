@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useToken } from "./Auth";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import Animal from "./Animal/Animal.js";
@@ -10,6 +11,17 @@ import dog1 from "./Images/dog1.png";
 import dog2 from "./Images/dog2.png";
 
 function MainPage() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [token] = useToken();
+
+  useEffect(() => {
+    if (token) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+    }
+  }, [token]);
+
   const fadeInUp = {
     initial: {
       x: 100,
@@ -61,12 +73,14 @@ function MainPage() {
             >
               <NavLink to="/products">Shop Now</NavLink>
             </button>
-            <button
-              className="bg-violet-500 text-slate-100 px-4 py-1 rounded-lg"
-              type="button"
-            >
-              <NavLink to="/custom">Customize</NavLink>
-            </button>
+            {loggedIn && (
+              <button
+                className="bg-violet-500 text-slate-100 px-4 py-1 rounded-lg"
+                type="button"
+              >
+                <NavLink to="/custom">Customize</NavLink>
+              </button>
+            )}
           </div>
         </motion.div>
       </div>
