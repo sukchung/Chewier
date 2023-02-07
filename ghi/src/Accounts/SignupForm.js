@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useToken } from "../Auth";
 
 import "../Styles/SignupForm.css";
-import petheart from "../Images/petheart.png";
+import pawprint1 from "../Images/pawprint1.png";
 
 export default function SignupForm() {
   const [signUp, setSignUp] = useState({
@@ -92,7 +92,7 @@ export default function SignupForm() {
             <h2 style={{ fontSize: "34px" }} className="heading">
               Sign up
             </h2>
-            <img src={petheart} className="icon" alt="icon" />
+            <img src={pawprint1} className="icon" alt="icon" />
           </div>
           <form onSubmit={handleSubmit} id="create-signup-form">
             <div className="form-floating mb-3 input-sm">

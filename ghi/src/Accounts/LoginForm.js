@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useToken } from "../Auth";
 
 import classes from "../Styles/LoginForm.module.css";
-import petheart from "../Images/petheart.png";
+import pawprint1 from "../Images/pawprint1.png";
 
 const Card = (props) => {
   return (
@@ -62,7 +62,7 @@ const LogInForm = (props) => {
             <h2 style={{ fontSize: "34px" }} className="heading">
               Log in
             </h2>
-            <img src={petheart} className="icon" alt="icon" />
+            <img src={pawprint1} className="icon" alt="icon" />
           </div>
           <form onSubmit={submitHandler} id="create-signup-form">
             <div className="form-floating mb-3 input-sm">
