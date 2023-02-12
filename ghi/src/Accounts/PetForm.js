@@ -77,7 +77,7 @@ function PetForm(props) {
             <FancyBootStrappin
               id="petName"
               placeholder="Tell us here"
-              labelText="What's your pets name?"
+              labelText="What's your pet's name?"
               value={name}
               onChange={(e) => setName(e.target.value)}
               type="text"
