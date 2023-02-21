@@ -13,8 +13,12 @@ export default function SignupForm() {
     password: "",
     passwordConfirmation: "",
   });
-  const [, login] = useToken();
+  const [checkEmail, setCheckEmail] = useState(false);
+  const [checkPasswordChars, setCheckPasswordChars] = useState(false);
+  const [checkPasswordsMatch, setCheckPasswordsMatch] = useState(false);
+  const [unSuccessful, setUnsuccessful] = useState(false);
 
+  const [, login] = useToken();
   const navigate = useNavigate();
 
   function confirmEmail(email) {
@@ -39,17 +43,24 @@ export default function SignupForm() {
         [event.target.name]: event.target.value,
       };
     });
+    setCheckEmail(false);
+    setCheckPasswordChars(false);
+    setCheckPasswordsMatch(false);
+    setUnsuccessful(false);
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     if (!confirmPassword(signUp.password, signUp.passwordConfirmation)) {
-      alert("Passwords do not match.");
-    } else if (!confirmEmail(signUp.email)) {
-      alert("Invalid email format");
+      setCheckPasswordsMatch(true);
+      return;
     } else if (!passwordCharacters(signUp.password)) {
-      alert("Password must have 8-20 characters.");
+      setCheckPasswordChars(true);
+      return;
+    } else if (!confirmEmail(signUp.email)) {
+      setCheckEmail(true);
+      return;
     } else {
       const formData = signUp;
       delete formData.passwordConfirmation;
@@ -62,23 +73,29 @@ export default function SignupForm() {
           "Content-Type": "application/json",
         },
       };
-      const response = await fetch(url, fetchConfig);
 
-      if (response.ok) {
-        event.target.reset();
-        setSignUp({
-          first_name: "",
-          last_name: "",
-          email: "",
-          address: "",
-          password: "",
-          passwordConfirmation: "",
-        });
-        await login(signUp.email, signUp.password);
-        navigate("/");
-      } else if (!response.ok) {
-        const message = `${response.status}: ${response.statusText}`;
-        throw new Error(message);
+      try {
+        const response = await fetch(url, fetchConfig);
+
+        if (response.ok) {
+          event.target.reset();
+          setSignUp({
+            first_name: "",
+            last_name: "",
+            email: "",
+            address: "",
+            password: "",
+            passwordConfirmation: "",
+          });
+          await login(signUp.email, signUp.password);
+          navigate("/");
+        } else {
+          const message = `${response.status}: ${response.statusText}`;
+          throw new Error(message);
+        }
+      } catch (error) {
+        setUnsuccessful(true);
+        return;
       }
     }
   }
@@ -88,9 +105,7 @@ export default function SignupForm() {
       <div className="col-6">
         <div className="mt-4">
           <div className="container-form">
-            <h2 className="heading">
-              Sign Up
-            </h2>
+            <h2 className="heading">Sign Up</h2>
           </div>
           <form onSubmit={handleSubmit} id="create-signup-form">
             <div className="form-floating mb-3">
@@ -119,6 +134,9 @@ export default function SignupForm() {
               />
               <label htmlFor="last_name">Last Name</label>
             </div>
+            {checkEmail && (
+              <span className="red">Email is not in the correct format.</span>
+            )}
             <div className="form-floating mb-3">
               <input
                 onChange={handleChange}
@@ -132,6 +150,14 @@ export default function SignupForm() {
               />
               <label htmlFor="email">Email</label>
             </div>
+            {checkPasswordChars && (
+              <span className="red">
+                Password must be 8-20 characters long.
+              </span>
+            )}
+            {checkPasswordsMatch && (
+              <span className="red">Passwords do not match.</span>
+            )}
             <div className="form-floating mb-3">
               <input
                 onChange={handleChange}
@@ -171,11 +197,12 @@ export default function SignupForm() {
               />
               <label htmlFor="address">Address</label>
             </div>
-            <button
-              className="btn purple-button"
-            >
-              Sign up
-            </button>
+            {unSuccessful && (
+              <div className="alert alert-danger" role="alert">
+                There was an error with your sign-up. Email already exists.
+              </div>
+            )}
+            <button className="btn purple-button">Sign up</button>
             <div>
               <p className="spacing">
                 Already have a Chewier account?{" "}
