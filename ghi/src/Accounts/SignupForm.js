@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useToken } from "../Auth";
 
 import "../Styles/SignupForm.css";
-import pawprint1 from "../Images/pawprint1.png";
 
 export default function SignupForm() {
   const [signUp, setSignUp] = useState({
@@ -85,17 +84,16 @@ export default function SignupForm() {
   }
 
   return (
-    <div className="row">
-      <div className="offset-3 col-6">
-        <div className="p-4 mt-4 smaller-container">
-          <div className="container1">
-            <h2 style={{ fontSize: "34px" }} className="heading">
-              Sign up
+    <div className="row d-flex justify-content-center">
+      <div className="col-6">
+        <div className="mt-4">
+          <div className="container-form">
+            <h2 className="heading">
+              Sign Up
             </h2>
-            <img src={pawprint1} className="icon" alt="icon" />
           </div>
           <form onSubmit={handleSubmit} id="create-signup-form">
-            <div className="form-floating mb-3 input-sm">
+            <div className="form-floating mb-3">
               <input
                 onChange={handleChange}
                 placeholder="First Name"
@@ -137,7 +135,7 @@ export default function SignupForm() {
             <div className="form-floating mb-3">
               <input
                 onChange={handleChange}
-                placeholder="Password"
+                placeholder="Password (8-20 characters)"
                 type="password"
                 name="password"
                 id="password"
@@ -145,7 +143,7 @@ export default function SignupForm() {
                 className="form-control"
                 required
               />
-              <label htmlFor="password">Password (8-20 characters)</label>
+              <label htmlFor="password">Password</label>
             </div>
             <div className="form-floating mb-3">
               <input
@@ -174,8 +172,7 @@ export default function SignupForm() {
               <label htmlFor="address">Address</label>
             </div>
             <button
-              id="button-purple"
-              className="btn bg-violet-500 text-slate-100"
+              className="btn purple-button"
             >
               Sign up
             </button>

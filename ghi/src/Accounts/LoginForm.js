@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { useToken } from "../Auth";
 
 import "../Styles/LoginForm.module.css";
-import pawprint1 from "../Images/pawprint1.png";
 
 const LogInForm = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -42,14 +41,13 @@ const LogInForm = (props) => {
   };
 
   return (
-    <div className="row">
-      <div className="offset-3 col-6">
-        <div className="p-4 mt-4 smaller-container">
-          <div className="container1">
+    <div className="row d-flex justify-content-center">
+      <div className="col-6">
+        <div className="mt-4">
+          <div className="container-form">
             <h2 style={{ fontSize: "34px" }} className="heading">
-              Log in
+              Log In
             </h2>
-            <img src={pawprint1} className="icon" alt="icon" />
           </div>
           <form onSubmit={submitHandler} id="create-signup-form">
             <div className="form-floating mb-3 input-sm">
@@ -79,12 +77,7 @@ const LogInForm = (props) => {
               />
               <label htmlFor="password">Password</label>
             </div>
-            <button
-              id="button-purple"
-              className="btn bg-violet-500 text-slate-100"
-            >
-              Log in
-            </button>
+            <button className="btn bg-violet-500 text-slate-100">Log in</button>
             <div>
               <p className="spacing">
                 Not a Chewier member?{" "}
