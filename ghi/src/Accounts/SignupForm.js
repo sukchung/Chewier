@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useToken } from "../Auth";
-
 import "../Styles/SignupForm.css";
 
 export default function SignupForm() {
@@ -17,14 +16,13 @@ export default function SignupForm() {
   const [checkPasswordChars, setCheckPasswordChars] = useState(false);
   const [checkPasswordsMatch, setCheckPasswordsMatch] = useState(false);
   const [unSuccessful, setUnsuccessful] = useState(false);
-
   const [, login] = useToken();
   const navigate = useNavigate();
 
   function confirmEmail(email) {
     const regex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const lowercaseEmail = String(email).toLowerCase();
+    const lowercaseEmail = email.toLowerCase();
     return regex.test(lowercaseEmail);
   }
 
@@ -39,7 +37,7 @@ export default function SignupForm() {
   function handleChange(event) {
     setSignUp((prevSignUp) => {
       return {
-        ...signUp,
+        ...prevSignUp,
         [event.target.name]: event.target.value,
       };
     });
@@ -52,51 +50,50 @@ export default function SignupForm() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if (!confirmPassword(signUp.password, signUp.passwordConfirmation)) {
+    if (!confirmEmail(signUp.email)) {
+      setCheckEmail(true);
+      return;
+    } else if (!confirmPassword(signUp.password, signUp.passwordConfirmation)) {
       setCheckPasswordsMatch(true);
       return;
     } else if (!passwordCharacters(signUp.password)) {
       setCheckPasswordChars(true);
       return;
-    } else if (!confirmEmail(signUp.email)) {
-      setCheckEmail(true);
-      return;
-    } else {
-      const formData = signUp;
-      delete formData.passwordConfirmation;
+    }
 
-      const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/accounts`;
-      const fetchConfig = {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+    const formData = { ...signUp };
+    delete formData.passwordConfirmation;
 
-      try {
-        const response = await fetch(url, fetchConfig);
+    const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/accounts`;
+    const fetchConfig = {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-        if (response.ok) {
-          event.target.reset();
-          setSignUp({
-            first_name: "",
-            last_name: "",
-            email: "",
-            address: "",
-            password: "",
-            passwordConfirmation: "",
-          });
-          await login(signUp.email, signUp.password);
-          navigate("/");
-        } else {
-          const message = `${response.status}: ${response.statusText}`;
-          throw new Error(message);
-        }
-      } catch (error) {
-        setUnsuccessful(true);
-        return;
+    try {
+      const response = await fetch(url, fetchConfig);
+
+      if (response.ok) {
+        event.target.reset();
+        setSignUp({
+          first_name: "",
+          last_name: "",
+          email: "",
+          address: "",
+          password: "",
+          passwordConfirmation: "",
+        });
+        await login(signUp.email, signUp.password);
+        navigate("/");
+      } else {
+        const message = `${response.status}: ${response.statusText}`;
+        throw new Error(message);
       }
+    } catch (error) {
+      setUnsuccessful(true);
     }
   }
 
