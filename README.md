@@ -39,7 +39,8 @@ Users can create an account and log into that account. While logged in, they can
         ```
 2. Start Docker application
 3. Clone this [repository](https://github.com/sukchung/Chewier.git) to your local computer
-4. Run the following commands on your computer
+4. Navigate or cd into the cloned repository
+5. Run the following commands on your computer
     ```
     docker volume create postgres-data
     docker volume create pg-admin
@@ -48,8 +49,8 @@ Users can create an account and log into that account. While logged in, they can
     docker-compose build
     docker-compose up
     ```
-5. View Swagger UI to test the microservices' backends:
+6. View Swagger UI to test the microservices' backends:
     * Accounts: http://localhost:8080/docs/
     * Inventory: http://localhost:8090/docs/
-6. View the web application on your browser: http://localhost:3000/
-7. That is it. You are good to go! 🏁
+7. View the web application on your browser: http://localhost:3000/
+8. That is it. You are good to go! 🏁
